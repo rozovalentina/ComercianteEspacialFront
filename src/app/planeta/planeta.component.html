@@ -1,0 +1,22 @@
+<h1>Lista de Planetas</h1>
+<a routerLink="/planetas/nuevo">Crear Nuevo Planeta</a>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let planeta of planetas">
+            <td>{{ planeta.id }}</td>
+            <td>{{ planeta.nombre }}</td>
+            <td>
+                <a [routerLink]="['/planetas', planeta.id]">Detalles</a>
+                <a [routerLink]="['/planetas', planeta.id, 'editar']">Editar</a>
+                <button (click)="eliminarPlaneta(planeta.id)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

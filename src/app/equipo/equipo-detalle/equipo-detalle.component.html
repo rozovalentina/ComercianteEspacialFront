@@ -1,0 +1,13 @@
+<h1>Detalle de Equipo</h1>
+<p>ID: {{ equipo.id }}</p>
+<p>Nombre: {{ equipo.nombre }}</p>
+<p>Dinero: {{ equipo.dinero }}</p>
+<h2>Listado de Jugadores</h2>
+<ul>
+  <li *ngFor="let jugador of jugadores">{{ jugador.nombre }}</li>
+</ul>
+<h2>Listado de Naves</h2>
+<ul>
+  <li *ngFor="let nave of naves">{{ nave.nombre }}</li>
+</ul>
+<a routerLink="/equipos">Volver a la Lista de Equipos</a>

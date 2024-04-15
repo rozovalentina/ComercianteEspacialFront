@@ -1,0 +1,15 @@
+<h1>Crear Nueva Estrella</h1>
+<form (submit)="guardarEstrella()">
+  <label>Nombre:</label>
+  <input type="text" [(ngModel)]="estrella.nombre" name="nombre" required><br>
+  <label>Habitada:</label>
+  <input type="checkbox" [(ngModel)]="estrella.habitada" name="habitada"><br>
+  <label>Coordenada X:</label>
+  <input type="number" [(ngModel)]="estrella.coordenadaX" name="coordenadaX" required><br>
+  <label>Coordenada Y:</label>
+  <input type="number" [(ngModel)]="estrella.coordenadaY" name="coordenadaY" required><br>
+  <label>Coordenada Z:</label>
+  <input type="number" [(ngModel)]="estrella.coordenadaZ" name="coordenadaZ" required><br>
+  <button type="submit">Guardar</button>
+</form>
+<a routerLink="/estrellas">Cancelar</a>

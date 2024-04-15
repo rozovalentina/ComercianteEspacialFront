@@ -1,0 +1,28 @@
+<h1>Lista de Estrellas</h1>
+<a routerLink="/estrellas/nuevo">Agregar Nueva Estrella</a>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Habitada</th>
+      <th>Coordenada X</th>
+      <th>Coordenada Y</th>
+      <th>Coordenada Z</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let estrella of estrellas">
+      <td>{{ estrella.nombre }}</td>
+      <td>{{ estrella.habitada }}</td>
+      <td>{{ estrella.coordenadaX }}</td>
+      <td>{{ estrella.coordenadaY }}</td>
+      <td>{{ estrella.coordenadaZ }}</td>
+      <td>
+        <a [routerLink]="['/estrellas', estrella.id]">Ver Detalles</a> |
+        <a [routerLink]="['/estrellas', estrella.id, 'editar']">Editar</a> |
+        <a (click)="eliminarEstrella(estrella.id)">Eliminar</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
