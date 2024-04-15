@@ -8,7 +8,7 @@ import { Planeta } from '../../model/planeta/planeta';
 })
 export class PlanetaService {
 
-  private apiUrl = '/api/planetas'; // Actualiza la URL según tu configuración
+  private apiUrl = 'http://localhost:8080/planetas'; // Actualiza la URL según tu configuración
 
   constructor(private http: HttpClient) { }
 

@@ -10,13 +10,16 @@ import { PlanetaService } from '../../shared/PlanetaService/planeta.service';
 })
 export class DetallePlanetaComponent implements OnInit {
 
-  planeta: Planeta;
+  planeta!: Planeta;
 
   constructor(private route: ActivatedRoute, private planetaService: PlanetaService) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.planetaService.obtenerPlaneta(id)
+    const idString = this.route.snapshot.paramMap.get('id');
+    if (idString !== null) {
+      const id: number = parseInt(idString, 10); // Convierte la cadena a un número entero
+      this.planetaService.obtenerPlaneta(id)
       .subscribe(planeta => this.planeta = planeta);
+      }
   }
 }

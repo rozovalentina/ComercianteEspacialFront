@@ -9,18 +9,20 @@ import { Estrella } from '../../model/estrella/estrella';
   styleUrls: ['./editar-estrella.component.css']
 })
 export class EditarEstrellaComponent implements OnInit {
-  estrella: Estrella;
+  estrella!: Estrella; // Inicializa estrella con un valor predeterminado
 
   constructor(private route: ActivatedRoute, private estrellaService: EstrellaService, private router: Router) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.estrellaService.obtenerEstrellaPorId(id).subscribe(estrella => this.estrella = estrella);
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.estrellaService.obtenerEstrellaPorId(id).subscribe(estrella => this.estrella = estrella);    
   }
 
   actualizarEstrella(): void {
-    this.estrellaService.actualizarEstrella(this.estrella.id, this.estrella).subscribe(() => {
-      this.router.navigateByUrl('/estrellas');
-    });
+    if (this.estrella) {
+      this.estrellaService.actualizarEstrella(this.estrella.id, this.estrella).subscribe(() => {
+        this.router.navigateByUrl('/estrellas');
+      });
+    }
   }
 }

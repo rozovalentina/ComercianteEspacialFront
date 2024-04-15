@@ -9,7 +9,7 @@ import { PlanetaService } from '../shared/PlanetaService/planeta.service';
 })
 export class PlanetaComponent implements OnInit {
 
-  planetas: Planeta[];
+  planetas!: Planeta[] ;
 
   constructor(private planetaService: PlanetaService) { }
 

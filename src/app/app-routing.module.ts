@@ -12,6 +12,9 @@ import { PlanetaComponent } from './planeta/planeta.component';
 import { CrearPlanetaComponent } from './planeta/crear-planeta/crear-planeta.component';
 import { EditarPlanetaComponent } from './planeta/editar-planeta/editar-planeta.component';
 import { DetallePlanetaComponent } from './planeta/planeta-detalle/planeta-detalle.component';
+import { JugadorComponent } from './jugador/jugador.component';
+import { EditarJugadorComponent } from './jugador/editar-jugador/editar-jugador.component';
+import { CrearJugadorComponent } from './jugador/crear-jugador/crear-jugador.component';
 
 
 export const routes: Routes = [
@@ -23,13 +26,16 @@ export const routes: Routes = [
   { path: 'estrellas', component: EstrellaComponent },
   { path: 'estrellas/nuevo', component: CrearEstrellaComponent },
   { path: 'estrellas/:id', component: EstrellaDetalleComponent },
-  { path: 'estrellas/:id/editar', component: EditarEstrellaComponent }
+  { path: 'estrellas/:id/editar', component: EditarEstrellaComponent },
   { path: '', redirectTo: '/planetas', pathMatch: 'full' },
   { path: 'planetas', component: PlanetaComponent },
   { path: 'planetas/nuevo', component: CrearPlanetaComponent },
   { path: 'planetas/:id/editar', component: EditarPlanetaComponent },
-  { path: 'planetas/:id', component: DetallePlanetaComponent }
-
+  { path: 'planetas/:id', component: DetallePlanetaComponent },
+  { path: '', redirectTo: '/jugadores', pathMatch: 'full' },
+  { path: 'jugadores', component: JugadorComponent },
+  { path: 'editar-jugador/:id', component: EditarJugadorComponent },
+  { path: 'crear-jugador', component: CrearJugadorComponent },
 ];
 
 @NgModule({

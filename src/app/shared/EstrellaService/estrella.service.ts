@@ -7,7 +7,7 @@ import { Estrella } from '../../model/estrella/estrella';
   providedIn: 'root'
 })
 export class EstrellaService {
-  private apiUrl = '/api/estrellas'; // Modifica la URL según la configuración de tu backend
+  private apiUrl = 'http://localhost:8080/estrellas'; // Modifica la URL según la configuración de tu backend
 
   constructor(private http: HttpClient) { }
 

@@ -8,7 +8,7 @@ import { EquipoService } from '../shared/EquipoService/equipo.service';
   styleUrls: ['./equipo.component.css']
 })
 export class EquipoComponent implements OnInit {
-  equipos: Equipo[] | undefined;
+  equipos!: Equipo[] ;
 
   constructor(private equipoService: EquipoService) { }
 

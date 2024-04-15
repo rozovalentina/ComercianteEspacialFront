@@ -1,0 +1,14 @@
+<h2>Editar Jugador</h2>
+<form (ngSubmit)="actualizarJugador()">
+  <input type="hidden" [(ngModel)]="jugador.id">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" name="nombre" [(ngModel)]="jugador.nombre" required><br>
+  <label for="contraseña">Contraseña:</label>
+  <input type="password" id="contraseña" name="contraseña" [(ngModel)]="jugador.contrasena" required><br>
+  <label for="equipo">Equipo:</label>
+  <select id="equipo" name="equipo" [(ngModel)]="jugador.equipo" required>
+    <option *ngFor="let equipo of equipos" [ngValue]="equipo">{{ equipo.nombre }}</option>
+  </select><br>
+  <button type="submit">Actualizar Jugador</button>
+</form>
+<a routerLink="/lista-jugador">Cancelar</a>

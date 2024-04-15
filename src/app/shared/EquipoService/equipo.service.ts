@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EquipoService {
-  private apiUrl = "http://localhost:8090/gestionequipos"; // Actualizar con la URL correcta de tu backend
+  private apiUrl = "http://localhost:8080/equipos"; // Actualizar con la URL correcta de tu backend
 
   constructor(private http: HttpClient) { }
 

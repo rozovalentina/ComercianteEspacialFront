@@ -11,16 +11,17 @@ import { Planeta } from '../../model/planeta/planeta';
   styleUrls: ['./estrella-detalle.component.css']
 })
 export class EstrellaDetalleComponent implements OnInit {
-  estrella: Estrella;
-  planetas: Planeta[];
+  estrella!: Estrella;
+  planetas!: Planeta[];
 
   constructor(private route: ActivatedRoute, private estrellaService: EstrellaService) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     this.estrellaService.obtenerEstrellaPorId(id).subscribe(estrella => {
       this.estrella = estrella;
       this.planetas = estrella.planetas;
     });
   }
-}
+  }
+

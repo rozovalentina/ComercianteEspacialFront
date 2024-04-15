@@ -8,7 +8,7 @@ import { EstrellaService } from '../shared/EstrellaService/estrella.service';
   styleUrls: ['./estrella.component.css']
 })
 export class EstrellaComponent implements OnInit {
-  estrellas: Estrella[];
+  estrellas: Estrella[] = [];
 
   constructor(private estrellaService: EstrellaService) { }
 
