@@ -20,8 +20,10 @@ import { EditarPlanetaComponent } from './planeta/editar-planeta/editar-planeta.
 import { JugadorComponent } from './jugador/jugador.component';
 import { EditarJugadorComponent } from './jugador/editar-jugador/editar-jugador.component';
 import { CrearJugadorComponent } from './jugador/crear-jugador/crear-jugador.component';
-
-
+import { TiponaveComponent } from './tiponave/tiponave.component';
+import { EditarTiponaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
+import { TiponaveDetalleComponent } from './tiponave/tiponave-detalle/tiponave-detalle.component';
+import { CrearTiponaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,11 @@ import { CrearJugadorComponent } from './jugador/crear-jugador/crear-jugador.com
     EditarPlanetaComponent,
     JugadorComponent,
     EditarJugadorComponent,
-    CrearJugadorComponent
+    CrearJugadorComponent,
+    TiponaveComponent,
+    EditarTiponaveComponent,
+    CrearTiponaveComponent,
+    TiponaveDetalleComponent
   ],
   imports: [
     BrowserModule,

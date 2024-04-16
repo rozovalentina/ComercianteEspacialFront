@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Planeta } from '../../model/planeta/planeta';
 import { PlanetaService } from '../../shared/PlanetaService/planeta.service';
 
 @Component({
@@ -10,7 +9,7 @@ import { PlanetaService } from '../../shared/PlanetaService/planeta.service';
 })
 export class CrearPlanetaComponent {
 
-  planeta!=Planeta={}
+  nombre!: string;
 
   constructor(private router: Router, private planetaService: PlanetaService) { }
 
