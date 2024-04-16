@@ -10,12 +10,12 @@ import { PlanetaService } from '../../shared/PlanetaService/planeta.service';
 })
 export class EditarPlanetaComponent implements OnInit {
 
-  planeta: Planeta;
+  planeta!: Planeta;
 
   constructor(private route: ActivatedRoute, private router: Router, private planetaService: PlanetaService) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id =  Number(this.route.snapshot.paramMap.get('id'));
     this.planetaService.obtenerPlaneta(id)
       .subscribe(planeta => this.planeta = planeta);
   }

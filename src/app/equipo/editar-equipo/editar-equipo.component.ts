@@ -9,12 +9,12 @@ import { Equipo } from '../../model/equipo/equipo';
   styleUrls: ['./editar-equipo.component.css']
 })
 export class EditarEquipoComponent implements OnInit {
-  equipo: Equipo;
+  equipo!: Equipo;
 
   constructor(private route: ActivatedRoute, private equipoService: EquipoService, private router: Router) { }
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = Number(this.route.snapshot.paramMap.get('id'));
     this.equipoService.getEquipoById(id).subscribe(equipo => this.equipo = equipo);
   }
 
