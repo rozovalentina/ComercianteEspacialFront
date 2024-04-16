@@ -1,7 +1,11 @@
-export interface Equipo {
+export class Equipo {
     id: number;
     nombre: string;
     dinero: number;
-    // Add other properties if needed
+  constructor(){
+    this.id = 0;
+    this.dinero=0;
+    this.nombre="";
+  }
   }
   

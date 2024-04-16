@@ -9,7 +9,9 @@ import { Equipo } from '../../model/equipo/equipo';
   styleUrls: ['./editar-equipo.component.css']
 })
 export class EditarEquipoComponent implements OnInit {
-  equipo!: Equipo;
+
+  equipo: Equipo = new Equipo();
+
 
   constructor(private route: ActivatedRoute, private equipoService: EquipoService, private router: Router) { }
 

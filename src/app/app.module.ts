@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { EquipoComponent } from './equipo/equipo.component';
 import { EquipoDetalleComponent } from './equipo/equipo-detalle/equipo-detalle.component';
 import { CrearEquipoComponent } from './equipo/crear-equipo/crear-equipo.component';
