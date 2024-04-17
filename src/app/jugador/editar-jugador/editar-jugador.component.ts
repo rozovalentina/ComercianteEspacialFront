@@ -1,3 +1,5 @@
+import { EquipoService } from './../../shared/EquipoService/equipo.service';
+import { Equipo } from './../../model/equipo/equipo';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Jugador } from '../../model/juagador/jugador';
@@ -10,14 +12,17 @@ import { JugadorService } from '../../shared/JugadorService/jugador.service';
 })
 export class EditarJugadorComponent  {
   jugador!: Jugador ;
-
-  constructor(private route: ActivatedRoute, private jugadorService: JugadorService, private router: Router) { }
+  equipos!: Equipo[];
+  constructor(private route: ActivatedRoute, private jugadorService: JugadorService, private router: Router, private equipoService:EquipoService) { }
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.jugadorService.obtenerJugador(id).subscribe(jugador => {
       this.jugador = jugador;
     });
+    this.equipoService.getAllEquipos().subscribe(respsponce =>{
+      this.equipos= respsponce;
+    })
   }
 
   actualizarJugador(): void {
