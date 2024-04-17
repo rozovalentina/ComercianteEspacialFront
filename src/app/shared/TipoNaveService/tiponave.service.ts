@@ -7,11 +7,9 @@ import { TipoNave } from '../../model/TipoNave/tiponave';
   providedIn: 'root'
 })
 export class TipoNaveService {
-  obtenerTipoNave(id: number) {
-    throw new Error('Method not implemented.');
-  }
 
-  private apiUrl = '/api/tiposnave';
+
+  private apiUrl = 'http://localhost:8080/tiposnave';
 
   constructor(private http: HttpClient) { }
 
@@ -26,5 +24,10 @@ export class TipoNaveService {
   obtenerTipoNavePorId(id: number): Observable<TipoNave> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<TipoNave>(url);
+  }
+  actualizarTipoNave(id: number, nombre: string, descripcion: string): Observable<TipoNave> {
+    const url = `${this.apiUrl}/${id}`;
+    const body = { nombre, descripcion };
+    return this.http.put<TipoNave>(url, body);
   }
 }

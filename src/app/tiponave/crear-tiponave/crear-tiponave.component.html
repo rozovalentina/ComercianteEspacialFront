@@ -1,1 +1,9 @@
-<p>crear-tiponave works!</p>
+<h1>Crear Nuevo Tipo de Nave</h1>
+<form (submit)="guardarTipoNave()">
+  <label for="nombre">Nombre:</label>
+  <input type="text" id="nombre" [(ngModel)]="tipoNave.nombre" name="nombre" required><br>
+  <label for="descripcion">Descripción:</label>
+  <input type="text" id="descripcion" [(ngModel)]="tipoNave.descripcion" name="descripcion"><br>
+  <button type="submit">Guardar Tipo de Nave</button>
+</form>
+<a routerLink="/tiposnave">Cancelar</a>

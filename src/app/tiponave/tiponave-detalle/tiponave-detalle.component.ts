@@ -10,7 +10,7 @@ import { TipoNaveService } from '../../shared/TipoNaveService/tiponave.service';
 })
 export class TipoNaveDetallesComponent implements OnInit {
 
-  tipoNave: TipoNave | undefined;
+  tipoNave!: TipoNave ;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +23,6 @@ export class TipoNaveDetallesComponent implements OnInit {
 
   obtenerDetallesTipoNave(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.tipoNaveService.obtenerTipoNave(id).subscribe(tipoNave => this.tipoNave = tipoNave);
+    this.tipoNaveService.obtenerTipoNavePorId(id).subscribe((tipoNave: TipoNave) => this.tipoNave = tipoNave);
   }
 }

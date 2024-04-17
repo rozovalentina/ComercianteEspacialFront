@@ -20,10 +20,10 @@ import { EditarPlanetaComponent } from './planeta/editar-planeta/editar-planeta.
 import { JugadorComponent } from './jugador/jugador.component';
 import { EditarJugadorComponent } from './jugador/editar-jugador/editar-jugador.component';
 import { CrearJugadorComponent } from './jugador/crear-jugador/crear-jugador.component';
-import { TiponaveComponent } from './tiponave/tiponave.component';
-import { EditarTiponaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
-import { TiponaveDetalleComponent } from './tiponave/tiponave-detalle/tiponave-detalle.component';
-import { CrearTiponaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
+import { TipoNaveComponent } from './tiponave/tiponave.component';
+import { EditarTipoNaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
+import { TipoNaveDetallesComponent } from './tiponave/tiponave-detalle/tiponave-detalle.component';
+import { CrearTipoNaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,10 +42,10 @@ import { CrearTiponaveComponent } from './tiponave/crear-tiponave/crear-tiponave
     JugadorComponent,
     EditarJugadorComponent,
     CrearJugadorComponent,
-    TiponaveComponent,
-    EditarTiponaveComponent,
-    CrearTiponaveComponent,
-    TiponaveDetalleComponent
+    TipoNaveComponent,
+    EditarTipoNaveComponent,
+    CrearTipoNaveComponent,
+    TipoNaveDetallesComponent
   ],
   imports: [
     BrowserModule,

@@ -15,10 +15,10 @@ import { DetallePlanetaComponent } from './planeta/planeta-detalle/planeta-detal
 import { JugadorComponent } from './jugador/jugador.component';
 import { EditarJugadorComponent } from './jugador/editar-jugador/editar-jugador.component';
 import { CrearJugadorComponent } from './jugador/crear-jugador/crear-jugador.component';
-import { TiponaveComponent } from './tiponave/tiponave.component';
-import { EditarTiponaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
-import { CrearTiponaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
-import { TiponaveDetalleComponent } from './tiponave/tiponave-detalle/tiponave-detalle.component';
+import { TipoNaveComponent } from './tiponave/tiponave.component';
+import { EditarTipoNaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
+import { CrearTipoNaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
+import { TipoNaveDetallesComponent } from './tiponave/tiponave-detalle/tiponave-detalle.component';
 export const routes: Routes = [
   { path: '', redirectTo: '/equipos', pathMatch: 'full' },
   { path: 'equipos', component: EquipoComponent },
@@ -38,10 +38,10 @@ export const routes: Routes = [
   { path: 'jugadores', component: JugadorComponent },
   { path: 'editar-jugador/:id', component: EditarJugadorComponent },
   { path: 'crear-jugador', component: CrearJugadorComponent },
-  { path: 'tiponave', component: TiponaveComponent },
-  { path: 'tiponave/nuevo', component: CrearTiponaveComponent },
-  { path: 'tiponave/:id/editar', component: EditarTiponaveComponent },
-  { path: 'tiponave/:id', component: DetallePlanetaComponent },
+  { path: 'tiponave', component: TipoNaveComponent },
+  { path: 'tiponave/nuevo', component: CrearTipoNaveComponent },
+  { path: 'tiponave/:id/editar', component: EditarTipoNaveComponent },
+  { path: 'tiponave/:id', component: TipoNaveDetallesComponent },
 ];
 
 @NgModule({
