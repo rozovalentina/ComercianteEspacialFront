@@ -19,6 +19,7 @@ import { TipoNaveComponent } from './tiponave/tiponave.component';
 import { EditarTipoNaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
 import { CrearTipoNaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
 import { TipoNaveDetallesComponent } from './tiponave/tiponave-detalle/tiponave-detalle.component';
+
 export const routes: Routes = [
   { path: '', redirectTo: '/equipos', pathMatch: 'full' },
   { path: 'equipos', component: EquipoComponent },
@@ -42,6 +43,7 @@ export const routes: Routes = [
   { path: 'tiponave/nuevo', component: CrearTipoNaveComponent },
   { path: 'tiponave/:id/editar', component: EditarTipoNaveComponent },
   { path: 'tiponave/:id', component: TipoNaveDetallesComponent },
+
 ];
 
 @NgModule({

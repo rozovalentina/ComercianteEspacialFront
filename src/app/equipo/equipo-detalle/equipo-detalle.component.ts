@@ -11,7 +11,7 @@ import { Nave } from '../../model/nave/nave';
   styleUrls: ['./equipo-detalle.component.css']
 })
 export class EquipoDetalleComponent implements OnInit {
-  equipo!: Equipo ;
+  equipo: Equipo = new Equipo();
   jugadores!: Jugador[] ;
   naves!: Nave[] ;
 
