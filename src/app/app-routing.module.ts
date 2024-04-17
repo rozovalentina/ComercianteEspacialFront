@@ -19,9 +19,8 @@ import { TipoNaveComponent } from './tiponave/tiponave.component';
 import { EditarTipoNaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
 import { CrearTipoNaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
 import { TipoNaveDetallesComponent } from './tiponave/tiponave-detalle/tiponave-detalle.component';
-
+import { HomeComponent } from './home/home/home.component';
 export const routes: Routes = [
-  { path: '', redirectTo: '/equipos', pathMatch: 'full' },
   { path: 'equipos', component: EquipoComponent },
   { path: 'equipos/:id', component: EquipoDetalleComponent },
   { path: 'nuevo-equipo', component: CrearEquipoComponent },
@@ -30,12 +29,10 @@ export const routes: Routes = [
   { path: 'estrellas/nuevo', component: CrearEstrellaComponent },
   { path: 'estrellas/:id', component: EstrellaDetalleComponent },
   { path: 'estrellas/:id/editar', component: EditarEstrellaComponent },
-  { path: '', redirectTo: '/planetas', pathMatch: 'full' },
   { path: 'planetas', component: PlanetaComponent },
   { path: 'planetas/nuevo', component: CrearPlanetaComponent },
   { path: 'planetas/:id/editar', component: EditarPlanetaComponent },
   { path: 'planetas/:id', component: DetallePlanetaComponent },
-  { path: '', redirectTo: '/jugadores', pathMatch: 'full' },
   { path: 'jugadores', component: JugadorComponent },
   { path: 'editar-jugador/:id', component: EditarJugadorComponent },
   { path: 'crear-jugador', component: CrearJugadorComponent },
@@ -43,7 +40,8 @@ export const routes: Routes = [
   { path: 'tiponave/nuevo', component: CrearTipoNaveComponent },
   { path: 'tiponave/:id/editar', component: EditarTipoNaveComponent },
   { path: 'tiponave/:id', component: TipoNaveDetallesComponent },
-
+  { path: 'gestionParqueadero/home',component: HomeComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'gestionParqueadero/home' }
 ];
 
 @NgModule({
