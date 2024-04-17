@@ -15,9 +15,9 @@
       <td>{{ equipo.nombre }}</td>
       <td>{{ equipo.dinero }}</td>
       <td>
-        <a >Ver Detalles</a>
-        <a >Editar</a>
-        <a >Eliminar</a>
+        <a style="cursor: pointer;" [routerLink]="['/equipos/',equipo.id]">Detalles</a>        
+        <button (click)="verDetalles(equipo.id)" style="cursor: pointer;">Editar</button>
+        <button (click)="eliminarEquipo(equipo.id)" style="cursor: pointer;">Eliminar</button>        
       </td>
     </tr>
   </tbody>

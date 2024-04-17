@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { EquipoComponent } from './equipo/equipo.component';
 import { EquipoDetalleComponent } from './equipo/equipo-detalle/equipo-detalle.component';
@@ -24,6 +25,8 @@ import { TipoNaveComponent } from './tiponave/tiponave.component';
 import { EditarTipoNaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
 import { TipoNaveDetallesComponent } from './tiponave/tiponave-detalle/tiponave-detalle.component';
 import { CrearTipoNaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
+import { HomeComponent } from './home/home/home.component';
+import { HeaderComponent } from './header/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,13 +48,16 @@ import { CrearTipoNaveComponent } from './tiponave/crear-tiponave/crear-tiponave
     TipoNaveComponent,
     EditarTipoNaveComponent,
     CrearTipoNaveComponent,
-    TipoNaveDetallesComponent
+    TipoNaveDetallesComponent,
+    HomeComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

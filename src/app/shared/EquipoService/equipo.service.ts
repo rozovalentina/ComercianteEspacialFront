@@ -1,18 +1,23 @@
 import { Equipo } from './../../model/equipo/equipo';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EquipoService {
-  private apiUrl = "http://localhost:8080/equipos"; // Actualizar con la URL correcta de tu backend
+  private httpOptions = {
+    headers: new HttpHeaders({
+      "Content-Type": "application/json"
+    })
+  };
+  private apiUrl = "http://localhost:8080/equipos";
 
   constructor(private http: HttpClient) { }
 
   getAllEquipos(): Observable<Equipo[]> {
-    return this.http.get<Equipo[]>(this.apiUrl);
+    return this.http.get<Equipo[]>(`${this.apiUrl}`,this.httpOptions);
   }
 
   getEquipoById(id: number): Observable<Equipo> {

@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { provideRouter, RouterModule, Routes, withComponentInputBinding } from '@angular/router';
 import { EquipoComponent } from './equipo/equipo.component';
 import { EquipoDetalleComponent } from './equipo/equipo-detalle/equipo-detalle.component';
 import { CrearEquipoComponent } from './equipo/crear-equipo/crear-equipo.component';
@@ -20,7 +20,9 @@ import { EditarTipoNaveComponent } from './tiponave/editar-tiponave/editar-tipon
 import { CrearTipoNaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
 import { TipoNaveDetallesComponent } from './tiponave/tiponave-detalle/tiponave-detalle.component';
 import { HomeComponent } from './home/home/home.component';
+
 export const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'equipos', component: EquipoComponent },
   { path: 'equipos/:id', component: EquipoDetalleComponent },
   { path: 'nuevo-equipo', component: CrearEquipoComponent },
@@ -40,12 +42,13 @@ export const routes: Routes = [
   { path: 'tiponave/nuevo', component: CrearTipoNaveComponent },
   { path: 'tiponave/:id/editar', component: EditarTipoNaveComponent },
   { path: 'tiponave/:id', component: TipoNaveDetallesComponent },
-  { path: 'gestionParqueadero/home',component: HomeComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'gestionParqueadero/home' }
+  { path: 'home',component: HomeComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+
+  providers: [provideRouter(routes,withComponentInputBinding())]
 })
 export class AppRoutingModule { }

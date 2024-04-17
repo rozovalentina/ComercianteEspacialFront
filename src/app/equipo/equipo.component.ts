@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Equipo } from '../model/equipo/equipo';
 import { EquipoService } from '../shared/EquipoService/equipo.service';
@@ -10,10 +11,10 @@ import { EquipoService } from '../shared/EquipoService/equipo.service';
 export class EquipoComponent implements OnInit {
   equipos!: Equipo[] ;
 
-  constructor(private equipoService: EquipoService) { }
+  constructor(private equipoService: EquipoService, private router:Router) { }
 
   ngOnInit(): void {
-    this.getAllEquipos();
+    this.equipoService.getAllEquipos().subscribe(equipos => this.equipos = equipos);
   }
 
   getAllEquipos(): void {
@@ -22,8 +23,11 @@ export class EquipoComponent implements OnInit {
 
   eliminarEquipo(id: number): void {
     this.equipoService.deleteEquipo(id).subscribe(() => {
-      // Recargar la lista de equipos después de eliminar uno
       this.getAllEquipos();
     });
+  }
+
+  verDetalles(id: Number){
+    this.router.navigate(["/equipos",id,'editar'])
   }
 }
