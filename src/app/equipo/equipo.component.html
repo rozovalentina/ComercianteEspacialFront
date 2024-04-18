@@ -1,30 +1,31 @@
 <h1>Lista de Equipos</h1>
 <a routerLink="/nuevo-equipo">Agregar Nuevo Equipo</a>
 <div *ngIf="equipoPage">
-<table border="1">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Dinero</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let equipo of equipoPage.content">
-      <td>{{ equipo.id }}</td>
-      <td>{{ equipo.nombre }}</td>
-      <td>{{ equipo.dinero }}</td>
-      <td>
-        <a style="cursor: pointer;" [routerLink]="['/equipos/',equipo.id]">Detalles</a>        
-        <button (click)="verDetalles(equipo.id)" style="cursor: pointer;">Editar</button>
-        <button (click)="eliminarEquipo(equipo.id)" style="cursor: pointer;">Eliminar</button>        
-      </td>
-    </tr>
-  </tbody>
-</table>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Dinero</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let equipo of equipoPage.content">
+        <td>{{ equipo.id }}</td>
+        <td>{{ equipo.nombre }}</td>
+        <td>{{ equipo.dinero }}</td>
+        <td>
+          <a style="cursor: pointer;" [routerLink]="['/equipos/',equipo.id]">Detalles</a>        
+          <button (click)="verDetalles(equipo.id)" style="cursor: pointer;">Editar</button>
+          <button (click)="eliminarEquipo(equipo.id)" style="cursor: pointer;">Eliminar</button>        
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-<button (click)="getAllEquipos(equipoPage.number - 1)" [disabled]="equipoPage.first">Anterior</button>
-  <span>Página {{ equipoPage.number + 1 }} de {{ equipoPage.totalPages }}</span>
-  <button (click)="getAllEquipos(equipoPage.number + 1)" [disabled]="equipoPage.last">Siguiente</button>
+  <button (click)="getAllEquipos(equipoPage.number - 1)" [disabled]="equipoPage.first">Anterior</button>
+    <span>Página {{ equipoPage.number + 1 }} de {{ equipoPage.totalPages }}</span>
+    <button (click)="getAllEquipos(equipoPage.number + 1)" [disabled]="equipoPage.last">Siguiente</button>
 </div>
+<a routerLink="/home">Volver</a>

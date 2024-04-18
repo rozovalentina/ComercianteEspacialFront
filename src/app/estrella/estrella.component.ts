@@ -29,7 +29,7 @@ export class EstrellaComponent implements OnInit {
   eliminarEstrella(id: number): void {
     this.estrellaService.eliminarEstrella(id)
       .subscribe(() => {
-        this.obtenerEstrellas(0);
+        this.obtenerEstrellas(this.estrellasPage.number);
       });
   }
 }

@@ -29,9 +29,9 @@
       </tr>
     </tbody>
   </table>
-  
+
   <button (click)="obtenerEstrellas(estrellasPage.number - 1)" [disabled]="estrellasPage.first">Anterior</button>
   <span>Página {{ estrellasPage.number + 1 }} de {{ estrellasPage.totalPages }}</span>
   <button (click)="obtenerEstrellas(estrellasPage.number + 1)" [disabled]="estrellasPage.last">Siguiente</button>
 </div>
-
+<a routerLink="/home">Volver</a>
