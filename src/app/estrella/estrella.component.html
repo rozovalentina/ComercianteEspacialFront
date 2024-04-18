@@ -22,8 +22,8 @@
         <td>{{ estrella.coordenadaY }}</td>
         <td>{{ estrella.coordenadaZ }}</td>
         <td>
-          <a [routerLink]="['../model/estrella/estrella.ts', estrella.id]">Ver Detalles</a> |
-          <a [routerLink]="['../model/estrella/estrella.ts', estrella.id, 'editar']">Editar</a> |
+          <a [routerLink]="['/estrellas/', estrella.id]">Ver Detalles</a> |
+          <a [routerLink]="['/estrellas/', estrella.id, 'editar']">Editar</a> |
           <a (click)="eliminarEstrella(estrella.id)">Eliminar</a>
         </td>
       </tr>

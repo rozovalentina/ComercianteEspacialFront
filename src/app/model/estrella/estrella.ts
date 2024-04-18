@@ -11,7 +11,7 @@ export class Estrella {
 
   constructor() {
     this.id = 0;
-    this.nombre = '';
+    this.nombre = "";
     this.habitada = false;
     this.coordenadaX = 0;
     this.coordenadaY = 0;
