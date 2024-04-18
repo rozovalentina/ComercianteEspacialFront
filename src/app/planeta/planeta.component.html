@@ -14,8 +14,8 @@
                 <td>{{ planeta.id }}</td>
                 <td>{{ planeta.nombre }}</td>
                 <td>
-                    <a [routerLink]="['/planetas/', planeta.id]">Detalles</a>
-                    <a [routerLink]="['/planetas/', planeta.id, 'editar']">Editar</a>
+                    <button (click)="verDetalles(planeta.id)">Ver Detalles</button>
+                    <button (click)="editarPlaneta(planeta.id)">Editar</button>                  
                     <button (click)="eliminarPlaneta(planeta.id)">Eliminar</button>
                 </td>
             </tr>

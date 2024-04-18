@@ -3,6 +3,6 @@
 <p>Nombre: {{ planeta.nombre }}</p>
 <h2>Productos</h2>
 <ul>
-    <li>**ngFor="let producto of productos"></li>
+    <li *ngFor="let producto of productos">{{producto.nombre}}</li>
 </ul>
 <a routerLink="/planetas">Volver a la Lista de Planetas</a>

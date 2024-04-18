@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Planeta } from '../model/planeta/planeta';
 import { PlanetaService } from '../shared/PlanetaService/planeta.service';
 import { Page } from '../dto/page';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-planeta',
@@ -12,7 +13,7 @@ export class PlanetaComponent implements OnInit {
 
   PlanetasPage!: Page;
 
-  constructor(private planetaService: PlanetaService) { }
+  constructor(private planetaService: PlanetaService, private router:Router) { }
 
   ngOnInit(): void {
     this.obtenerPlanetas(0);
@@ -26,7 +27,12 @@ export class PlanetaComponent implements OnInit {
         this.PlanetasPage = data;
       });   
   }
-
+  editarPlaneta(id:number): void{
+    this.router.navigate(["planetas",id, "editar"]);    
+  }
+  verDetalles(id:number):void{
+    this.router.navigate(["/planetas",id])
+  }
   eliminarPlaneta(id: number): void {
     this.planetaService.eliminarPlaneta(id)
       .subscribe(() => {

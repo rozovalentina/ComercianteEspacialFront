@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Planeta } from '../../model/planeta/planeta';
 import { PlanetaService } from '../../shared/PlanetaService/planeta.service';
+import { Producto } from '../../model/Producto/producto';
 
 @Component({
   selector: 'app-planeta-detalle',
@@ -11,7 +12,7 @@ import { PlanetaService } from '../../shared/PlanetaService/planeta.service';
 export class DetallePlanetaComponent implements OnInit {
 
   planeta!: Planeta;
-
+  productos!: Producto[];
   constructor(private route: ActivatedRoute, private planetaService: PlanetaService) { }
 
   ngOnInit(): void {
@@ -19,7 +20,10 @@ export class DetallePlanetaComponent implements OnInit {
     if (idString !== null) {
       const id: number = parseInt(idString, 10); // Convierte la cadena a un número entero
       this.planetaService.obtenerPlaneta(id)
-      .subscribe(planeta => this.planeta = planeta);
-      }
+      .subscribe(planeta => {
+        this.planeta = planeta
+        this.productos=this.planeta.productos;}
+      );
+      }      
   }
 }
