@@ -23,8 +23,7 @@
       <td>{{ producto.precioCompra }}</td>
       <td>{{ producto.precioVenta }}</td>
       <td>
-        <a routerLink="/productos/{{ producto.id }}">Detalles</a>
-        <a routerLink="/productos/{{ producto.id }}/editar">Editar</a>
+        <a [routerLink]="['/productos', producto.id, 'editar']">Editar</a> |  
         <button (click)="eliminarProducto(producto.id)">Eliminar</button>
       </td>
     </tr>

@@ -25,7 +25,6 @@ import { TipoNaveComponent } from './tiponave/tiponave.component';
 import { EditarTipoNaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
 import { CrearTipoNaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
 import { ProductoComponent } from './producto/producto.component';
-import { ProductoDetalleComponent } from './producto/crear-producto/producto-detalle/producto-detalle.component';
 import { ProductoEditarComponent } from './producto/editar-producto/editar-producto.component';
 import { ProductoCrearComponent } from './producto/crear-producto/crear-producto.component';
 import { HomeComponent } from './home/home/home.component';
@@ -52,7 +51,6 @@ import { HeaderComponent } from './header/header/header.component';
     EditarTipoNaveComponent,
     CrearTipoNaveComponent,
     ProductoCrearComponent,
-    ProductoDetalleComponent,
     ProductoEditarComponent,
     ProductoComponent,
     HomeComponent,
