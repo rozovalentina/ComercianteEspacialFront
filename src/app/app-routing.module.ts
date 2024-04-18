@@ -44,8 +44,8 @@ export const routes: Routes = [
   { path: 'tiponave/nuevo', component: CrearTipoNaveComponent },
   { path: 'tiponave/:id/editar', component: EditarTipoNaveComponent },
   { path: 'productos', component: ProductoComponent },
-  { path: 'editar-producto/:id', component: ProductoEditarComponent },
-  { path: 'crear-producto', component: ProductoCrearComponent },
+  { path: 'productos/:id/editar', component: ProductoEditarComponent },
+  { path: 'productos/nuevo', component: ProductoCrearComponent },
   { path: 'home',component: HomeComponent }
 ];
 
