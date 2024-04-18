@@ -1,1 +1,19 @@
-<p>tiponave works!</p>
+<h1>Lista de Tipos de Nave</h1>
+<a routerLink="/tiposnave/nuevo">Crear Nuevo Tipo de Nave</a>
+<table border="1">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tipoNave of tiposNaves">
+      <td>{{ tipoNave.id }}</td>
+      <td>{{ tipoNave.nombre }}</td>
+      <td>{{ tipoNave.descripcion }}</td>
+    </tr>
+  </tbody>
+</table>
+

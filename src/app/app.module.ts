@@ -23,7 +23,6 @@ import { EditarJugadorComponent } from './jugador/editar-jugador/editar-jugador.
 import { CrearJugadorComponent } from './jugador/crear-jugador/crear-jugador.component';
 import { TipoNaveComponent } from './tiponave/tiponave.component';
 import { EditarTipoNaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
-import { TipoNaveDetallesComponent } from './tiponave/tiponave-detalle/tiponave-detalle.component';
 import { CrearTipoNaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
 import { HomeComponent } from './home/home/home.component';
 import { HeaderComponent } from './header/header/header.component';
@@ -48,7 +47,6 @@ import { HeaderComponent } from './header/header/header.component';
     TipoNaveComponent,
     EditarTipoNaveComponent,
     CrearTipoNaveComponent,
-    TipoNaveDetallesComponent,
     HomeComponent,
     HeaderComponent,
   ],

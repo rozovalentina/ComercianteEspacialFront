@@ -18,7 +18,6 @@ import { CrearJugadorComponent } from './jugador/crear-jugador/crear-jugador.com
 import { TipoNaveComponent } from './tiponave/tiponave.component';
 import { EditarTipoNaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
 import { CrearTipoNaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
-import { TipoNaveDetallesComponent } from './tiponave/tiponave-detalle/tiponave-detalle.component';
 import { HomeComponent } from './home/home/home.component';
 
 export const routes: Routes = [
@@ -41,7 +40,6 @@ export const routes: Routes = [
   { path: 'tiponave', component: TipoNaveComponent },
   { path: 'tiponave/nuevo', component: CrearTipoNaveComponent },
   { path: 'tiponave/:id/editar', component: EditarTipoNaveComponent },
-  { path: 'tiponave/:id', component: TipoNaveDetallesComponent },
   { path: 'home',component: HomeComponent }
 ];
 
