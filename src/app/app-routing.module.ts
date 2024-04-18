@@ -18,6 +18,10 @@ import { CrearJugadorComponent } from './jugador/crear-jugador/crear-jugador.com
 import { TipoNaveComponent } from './tiponave/tiponave.component';
 import { EditarTipoNaveComponent } from './tiponave/editar-tiponave/editar-tiponave.component';
 import { CrearTipoNaveComponent } from './tiponave/crear-tiponave/crear-tiponave.component';
+import { ProductoListaComponent } from './producto/producto.component';
+import { ProductoEditarComponent } from './producto/editar-producto/editar-producto.component';
+import { ProductoCrearComponent } from './producto/crear-producto/crear-producto.component';
+import { ProductoDetalleComponent } from './producto/crear-producto/producto-detalle/producto-detalle.component';
 import { HomeComponent } from './home/home/home.component';
 
 export const routes: Routes = [
@@ -40,6 +44,10 @@ export const routes: Routes = [
   { path: 'tiponave', component: TipoNaveComponent },
   { path: 'tiponave/nuevo', component: CrearTipoNaveComponent },
   { path: 'tiponave/:id/editar', component: EditarTipoNaveComponent },
+  { path: 'productos', component: ProductoListaComponent },
+  { path: 'editar-producto/:id', component: ProductoEditarComponent },
+  { path: 'crear-producto', component: ProductoCrearComponent },
+  { path: 'productos/:id', component: ProductoDetalleComponent },
   { path: 'home',component: HomeComponent }
 ];
 
