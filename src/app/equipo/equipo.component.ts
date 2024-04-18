@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Equipo } from '../model/equipo/equipo';
 import { EquipoService } from '../shared/EquipoService/equipo.service';
+import { Page } from '../dto/page';
 
 @Component({
   selector: 'app-equipo',
@@ -9,21 +10,26 @@ import { EquipoService } from '../shared/EquipoService/equipo.service';
   styleUrls: ['./equipo.component.css']
 })
 export class EquipoComponent implements OnInit {
-  equipos!: Equipo[] ;
+  equipoPage!: Page;
 
   constructor(private equipoService: EquipoService, private router:Router) { }
 
   ngOnInit(): void {
-    this.equipoService.getAllEquipos().subscribe(equipos => this.equipos = equipos);
+    this.getAllEquipos(0);
   }
 
-  getAllEquipos(): void {
-    this.equipoService.getAllEquipos().subscribe(equipos => this.equipos = equipos);
+  getAllEquipos(pageNumber: number): void {
+    const pageSize = 10; // Tamaño de la página
+
+    this.equipoService.getAllEquipos(pageNumber,pageSize)
+    .subscribe((data:Page)=>{
+      this.equipoPage= data;
+    });
   }
 
   eliminarEquipo(id: number): void {
     this.equipoService.deleteEquipo(id).subscribe(() => {
-      this.getAllEquipos();
+      this.getAllEquipos(0);
     });
   }
 

@@ -1,27 +1,33 @@
 <h2>Lista de Jugadores</h2>
 <a routerLink="/crear-jugador">Agregar Nuevo Jugador</a>
-<table border="1">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Equipo</th>
-      <th>Contraseña</th>
-      <th>Rol</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let jugador of jugadores">
-      <td>{{ jugador.id }}</td>
-      <td>{{ jugador.nombre }}</td>
-      <td>{{ jugador.equipo }}</td>
-      <td>{{ jugador.contrasena }}</td>
-      <td>{{ jugador.rol }}</td>
-      <td>
-        <a [routerLink]="['./editar-jugador/editar-jugador.component.ts', jugador.id]">Editar</a>
-        <a (click)="eliminarJugador(jugador.id)">Eliminar</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+
+<div *ngIf="jugadoresPage">
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Equipo</th>
+        <th>Contraseña</th>
+        <th>Rol</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let jugador of jugadoresPage.content">
+        <td>{{ jugador.id }}</td>
+        <td>{{ jugador.nombre }}</td>
+        <td>{{ jugador.equipo }}</td>
+        <td>{{ jugador.contrasena }}</td>
+        <td>{{ jugador.rol }}</td>
+        <td>
+          <a [routerLink]="['./editar-jugador/editar-jugador.component.ts', jugador.id]">Editar</a>
+          <a (click)="eliminarJugador(jugador.id)">Eliminar</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="obtenerJugadores(jugadoresPage.number - 1)" [disabled]="jugadoresPage.first">Anterior</button>
+  <span>Página {{ jugadoresPage.number + 1 }} de {{ jugadoresPage.totalPages }}</span>
+  <button (click)="obtenerJugadores(jugadoresPage.number + 1)" [disabled]="jugadoresPage.last">Siguiente</button>
+</div>

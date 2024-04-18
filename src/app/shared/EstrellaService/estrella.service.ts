@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Estrella } from '../../model/estrella/estrella';
+import { Page } from '../../dto/page';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,11 @@ export class EstrellaService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerTodasEstrellas(): Observable<Estrella[]> {
-    return this.http.get<Estrella[]>(this.apiUrl);
+  obtenerTodasEstrellas(pageNumber: number, pageSize:number): Observable<Page> {
+    const params = new HttpParams()
+      .set('page', pageNumber.toString())
+      .set('size', pageSize.toString());
+    return this.http.get<Page>(this.apiUrl, {params});
   }
 
   obtenerEstrellaPorId(id: number): Observable<Estrella> {

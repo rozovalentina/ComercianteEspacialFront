@@ -20,8 +20,8 @@ export class EditarJugadorComponent  {
     this.jugadorService.obtenerJugador(id).subscribe(jugador => {
       this.jugador = jugador;
     });
-    this.equipoService.getAllEquipos().subscribe(respsponce =>{
-      this.equipos= respsponce;
+    this.equipoService.getAllEquipos(0,10).subscribe(respsponce =>{
+      this.equipos= respsponce.content;
     })
   }
 

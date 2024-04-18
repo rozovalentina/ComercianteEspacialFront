@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Planeta } from '../../model/planeta/planeta';
+import { Page } from '../../dto/page';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,11 @@ export class PlanetaService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerPlanetas(): Observable<Planeta[]> {
-    return this.http.get<Planeta[]>(this.apiUrl);
+  obtenerPlanetas(pageNumber: number, pageSize:number): Observable<Page> {
+    const params = new HttpParams()
+      .set('page', pageNumber.toString())
+      .set('size', pageSize.toString());
+    return this.http.get<Page>(this.apiUrl, {params});
   }
 
   guardarPlaneta(nombre: string): Observable<Planeta> {

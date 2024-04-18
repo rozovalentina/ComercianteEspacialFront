@@ -1,22 +1,29 @@
 <h1>Lista de Planetas</h1>
 <a routerLink="/planetas/nuevo">Crear Nuevo Planeta</a>
-<table border="1">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let planeta of planetas">
-            <td>{{ planeta.id }}</td>
-            <td>{{ planeta.nombre }}</td>
-            <td>
-                <a [routerLink]="['./model/planeta/planeta.ts', planeta.id]">Detalles</a>
-                <a [routerLink]="['./model/planeta/planeta.ts', planeta.id, 'editar']">Editar</a>
-                <button (click)="eliminarPlaneta(planeta.id)">Eliminar</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<div *ngIf="PlanetasPage">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let planeta of PlanetasPage.content">
+                <td>{{ planeta.id }}</td>
+                <td>{{ planeta.nombre }}</td>
+                <td>
+                    <a [routerLink]="['./model/planeta/planeta.ts', planeta.id]">Detalles</a>
+                    <a [routerLink]="['./model/planeta/planeta.ts', planeta.id, 'editar']">Editar</a>
+                    <button (click)="eliminarPlaneta(planeta.id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button (click)="obtenerPlanetas(PlanetasPage.number - 1)" [disabled]="PlanetasPage.first">Anterior</button>
+    <span>Página {{ PlanetasPage.number + 1 }} de {{ PlanetasPage.totalPages }}</span>
+    <button (click)="obtenerPlanetas(PlanetasPage.number + 1)" [disabled]="PlanetasPage.last">Siguiente</button>
+</div>
+

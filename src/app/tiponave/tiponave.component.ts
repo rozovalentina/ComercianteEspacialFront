@@ -14,7 +14,7 @@ export class TipoNaveComponent implements OnInit {
   constructor(private tipoNaveService: TipoNaveService) { }
 
   ngOnInit(): void {
-    this.obtenerTiposNaves();
+    this.tipoNaveService.obtenerTiposNaves().subscribe(tiposNaves => this.tiposNaves = tiposNaves);
   }
 
   obtenerTiposNaves(): void {
@@ -23,8 +23,7 @@ export class TipoNaveComponent implements OnInit {
 
   guardarTipoNave(nombre: string, descripcion: string): void {
     this.tipoNaveService.guardarTipoNave(nombre, descripcion).subscribe(() => {
-      this.obtenerTiposNaves();
-      // Aquí puedes agregar lógica adicional después de guardar el tipo de nave, si es necesario
+      this.obtenerTiposNaves();      
     });
 
   

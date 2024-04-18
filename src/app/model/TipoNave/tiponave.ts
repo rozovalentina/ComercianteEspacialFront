@@ -8,5 +8,4 @@ export class TipoNave {
         this.nombre = ''; 
         this.descripcion = '';
     }
-  }
-  
+}
