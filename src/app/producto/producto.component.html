@@ -1,31 +1,55 @@
-<h2>Lista de Productos</h2>
-<a routerLink="/productos/nuevo">Crear Nuevo Producto</a>
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Nombre</th>
-      <th>Factor de Demanda</th>
-      <th>Factor de Oferta</th>
-      <th>Volumen por Unidad</th>
-      <th>Precio de Compra</th>
-      <th>Precio de Venta</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let producto of productos">
-      <td>{{ producto.id }}</td>
-      <td>{{ producto.nombre }}</td>
-      <td>{{ producto.factorDemanda }}</td>
-      <td>{{ producto.factorOferta }}</td>
-      <td>{{ producto.volumenUnidad }}</td>
-      <td>{{ producto.precioCompra }}</td>
-      <td>{{ producto.precioVenta }}</td>
-      <td>
-        <a [routerLink]="['/productos', producto.id, 'editar']">Editar</a> |  
-        <button (click)="eliminarProducto(producto.id)">Eliminar</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="producto.component.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a routerLink="/home">Inicio</a></li>
+                <li><a routerLink="/planetas">Planetas</a></li>
+                <li><a routerLink="/estrellas">Viajes</a></li>
+                <li><a routerLink="/jugadores">Perfil</a></li>
+                <li><a routerLink="/home">Salir</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <h2>Lista de Productos</h2>
+    <a routerLink="/productos/nuevo">Crear Nuevo Producto</a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Factor de Demanda</th>
+                <th>Factor de Oferta</th>
+                <th>Volumen por Unidad</th>
+                <th>Precio de Compra</th>
+                <th>Precio de Venta</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos">
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.factorDemanda }}</td>
+                <td>{{ producto.factorOferta }}</td>
+                <td>{{ producto.volumenUnidad }}</td>
+                <td>{{ producto.precioCompra }}</td>
+                <td>{{ producto.precioVenta }}</td>
+                <td>
+                    <a [routerLink]="['/productos', producto.id, 'editar']">Editar</a> |  
+                    <button (click)="eliminarProducto(producto.id)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -46,7 +46,7 @@ export const routes: Routes = [
   { path: 'productos', component: ProductoComponent },
   { path: 'productos/:id/editar', component: ProductoEditarComponent },
   { path: 'productos/nuevo', component: ProductoCrearComponent },
-  { path: 'home',component: HomeComponent }
+  { path: 'home',component: HomeComponent },
 ];
 
 @NgModule({

@@ -34,4 +34,12 @@ export class JugadorService {
   eliminarJugador(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
+
+  login(user:Jugador):Observable<String>{
+    return this.http.post("http://localhost:8080/jugador/login",user,
+      {
+        responseType: 'text'
+      }
+    );
+  }
 }

@@ -1,23 +1,34 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TipoNaveService } from './../../shared/TipoNaveService/tiponave.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { TipoNave } from '../../model/TipoNave/tiponave';
+@Component({
+  selector: 'app-editar-tiponave',
+  templateUrl: './editar-tiponave.component.html',
+  styleUrls: ['./editar-tiponave.component.css']
+})
+export class EditarTipoNaveComponent implements OnInit {
+  tiponave!: TipoNave;
 
-import { EditarTiponaveComponent } from './editar-tiponave.component';
+  constructor(
+    private route: ActivatedRoute,
+    private tiponaveservice: TipoNaveService,
+    private location: Location
+  ) { }
 
-describe('EditarTiponaveComponent', () => {
-  let component: EditarTiponaveComponent;
-  let fixture: ComponentFixture<EditarTiponaveComponent>;
+  ngOnInit(): void {
+    this.obtenerProducto();
+  }
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [EditarTiponaveComponent]
-    })
-    .compileComponents();
-    
-    fixture = TestBed.createComponent(EditarTiponaveComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  obtenerProducto(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.tiponaveservice.obtenerTipoNavePorId(id)
+      .subscribe(TipoNave => this.tiponave = TipoNave);
+  }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  guardarCambios(): void {
+    this.tiponaveservice.actualizarTipoNave(this.tiponave.id, this.tiponave.descripcion, this.tiponave.nombre)
+      .subscribe(() => this.location.back());
+  }
+}

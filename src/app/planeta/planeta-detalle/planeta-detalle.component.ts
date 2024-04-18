@@ -16,14 +16,12 @@ export class DetallePlanetaComponent implements OnInit {
   constructor(private route: ActivatedRoute, private planetaService: PlanetaService) { }
 
   ngOnInit(): void {
-    const idString = this.route.snapshot.paramMap.get('id');
-    if (idString !== null) {
-      const id: number = parseInt(idString, 10); // Convierte la cadena a un número entero
-      this.planetaService.obtenerPlaneta(id)
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.planetaService.obtenerPlaneta(id)
       .subscribe(planeta => {
         this.planeta = planeta
         this.productos=this.planeta.productos;}
       );
-      }      
+    
   }
 }

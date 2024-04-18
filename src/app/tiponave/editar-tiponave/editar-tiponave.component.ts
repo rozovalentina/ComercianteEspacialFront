@@ -10,7 +10,7 @@ import { TipoNaveService } from '../../shared/TipoNaveService/tiponave.service';
 })
 export class EditarTipoNaveComponent implements OnInit {
 
-  tipoNave: TipoNave | undefined;
+  tipoNave!: TipoNave ;
 
   constructor(
     private route: ActivatedRoute,

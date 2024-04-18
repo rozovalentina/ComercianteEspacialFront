@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TipoNave } from '../model/TipoNave/tiponave';
 import { TipoNaveService } from '../shared/TipoNaveService/tiponave.service';
-
+import { Nave } from '../model/nave/nave';
 @Component({
   selector: 'app-tipo-nave',
   templateUrl: './tiponave.component.html',
@@ -10,6 +10,8 @@ import { TipoNaveService } from '../shared/TipoNaveService/tiponave.service';
 export class TipoNaveComponent implements OnInit {
 
   tiposNaves: TipoNave[] = [];
+  nave!: Nave [];
+naves: any;
 
   constructor(private tipoNaveService: TipoNaveService) { }
 
