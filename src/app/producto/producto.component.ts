@@ -11,6 +11,9 @@ export class ProductoComponent implements OnInit {
 eliminarProducto(arg0: number) {
 throw new Error('Method not implemented.');
 }
+editarProducto(arg0: number) {
+  throw new Error('Method not implemented.');
+  }
   productos!: Producto[];
 
   constructor(private productoService: ProductoService) { }
