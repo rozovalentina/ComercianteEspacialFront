@@ -6,7 +6,7 @@
       <th>ID</th>
       <th>Nombre</th>
       <th>Descripción</th>      
-      <th>Editar Tipo de Nave</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +14,7 @@
       <td>{{ tipoNave.id }}</td>
       <td>{{ tipoNave.nombre }}</td>
       <td>{{ tipoNave.descripcion }}</td>
-      <th style="cursor: pointer;" [routerLink]="['/tipoNave/',tipoNave.id]">Editar </th>
+      <a [routerLink]="['/tiponave/', tipoNave.id, 'editar']">Editar</a>
     </tr>
   </tbody>
 </table>
