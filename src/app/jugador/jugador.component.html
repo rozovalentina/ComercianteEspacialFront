@@ -17,9 +17,23 @@
       <tr *ngFor="let jugador of jugadoresPage.content">
         <td>{{ jugador.id }}</td>
         <td>{{ jugador.nombre }}</td>
-        <td>{{ jugador.equipo }}</td>
+        <td>
+          <ng-container *ngIf="jugador.equipo; else equipoNulo">
+            {{ jugador.equipo.nombre }}
+          </ng-container>
+          <ng-template #equipoNulo>
+            Equipo no asignado
+          </ng-template>
+        </td>
         <td>{{ jugador.contrasena }}</td>
-        <td>{{ jugador.rol }}</td>
+          <td>
+              <ng-container *ngIf="jugador.rol; else rolNulo">
+              {{ jugador.rol }}
+              </ng-container>
+              <ng-template #rolNulo>
+              Rol no definido
+            </ng-template>
+        </td>
         <td>
           <a [routerLink]="['/editar-jugador/', jugador.id]">Editar</a>
           <a (click)="eliminarJugador(jugador.id)">Eliminar</a>
@@ -31,3 +45,4 @@
   <span>Página {{ jugadoresPage.number + 1 }} de {{ jugadoresPage.totalPages }}</span>
   <button (click)="obtenerJugadores(jugadoresPage.number + 1)" [disabled]="jugadoresPage.last">Siguiente</button>
 </div>
+<a routerLink="/jugadores">Cancelar</a>
