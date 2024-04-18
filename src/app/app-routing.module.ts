@@ -22,6 +22,8 @@ import { ProductoComponent } from './producto/producto.component';
 import { ProductoEditarComponent } from './producto/editar-producto/editar-producto.component';
 import { ProductoCrearComponent } from './producto/crear-producto/crear-producto.component';
 import { HomeComponent } from './home/home/home.component';
+import { NaveDetalleComponent } from './nave/naveDetalle/nave-detalle/nave-detalle.component';
+import { LoginComponent } from './login/login/login.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -46,6 +48,8 @@ export const routes: Routes = [
   { path: 'productos', component: ProductoComponent },
   { path: 'productos/:id/editar', component: ProductoEditarComponent },
   { path: 'productos/nuevo', component: ProductoCrearComponent },
+  { path: 'nave/:id', component: NaveDetalleComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'home',component: HomeComponent },
 ];
 

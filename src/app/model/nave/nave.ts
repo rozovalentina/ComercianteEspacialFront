@@ -8,8 +8,8 @@ export class Nave {
     naveX: number;
     naveY: number;
     naveZ: number;
-    tipoNave: TipoNave [];
-    equipo: Equipo [];
+    tipoNave: TipoNave;
+    equipo: Equipo;
 
     constructor()
     {
@@ -20,8 +20,8 @@ export class Nave {
         this.naveX = 0;
         this.naveY = 0;
         this.naveZ = 0;
-        this.tipoNave = [];
-        this.equipo = [];
+        this.tipoNave = new TipoNave();
+        this.equipo = new Equipo();
     
     }
-  }
+}

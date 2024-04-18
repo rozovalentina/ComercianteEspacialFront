@@ -29,9 +29,11 @@ import { ProductoEditarComponent } from './producto/editar-producto/editar-produ
 import { ProductoCrearComponent } from './producto/crear-producto/crear-producto.component';
 import { HomeComponent } from './home/home/home.component';
 import { HeaderComponent } from './header/header/header.component';
+import { LoginComponent } from './login/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     EquipoComponent,
     EquipoDetalleComponent,
     CrearEquipoComponent,
