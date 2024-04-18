@@ -3,12 +3,15 @@ import { ProductoService } from '../shared/ProductoService/producto.service';
 import { Producto } from '../model/Producto/producto';
 
 @Component({
-  selector: 'app-producto-lista',
-  templateUrl: './producto-lista.component.html',
-  styleUrls: ['./producto-lista.component.css']
+  selector: 'app-producto',
+  templateUrl: './producto.component.html',
+  styleUrls: ['./producto.component.css']
 })
-export class ProductoListaComponent implements OnInit {
-  productos: Producto[];
+export class ProductoComponent implements OnInit {
+eliminarProducto(arg0: number) {
+throw new Error('Method not implemented.');
+}
+  productos!: Producto[];
 
   constructor(private productoService: ProductoService) { }
 
