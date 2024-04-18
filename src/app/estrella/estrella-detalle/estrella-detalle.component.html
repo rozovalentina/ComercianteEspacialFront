@@ -1,1 +1,12 @@
-<p>estrella-detalle works!</p>
+<h1>Detalle de Estrella</h1>
+<p>ID: {{ estrella.id }}</p>
+<p>Nombre: {{ estrella.nombre }}</p>
+<p>Habitada: {{ estrella.habitada }}</p>
+<p>Habitada: {{ estrella.coordenadaX }}</p>
+<p>Habitada: {{ estrella.coordenadaY }}</p>
+<p>Habitada: {{ estrella.coordenadaZ }}</p>
+<h2>Listado de Planetas</h2>
+<ul>
+  <li *ngFor="let planeta of planetas">{{ planeta.nombre }}</li>
+</ul>
+<a routerLink="/equipos">Volver a la Lista de Equipos</a>
