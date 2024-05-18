@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductoService } from '../shared/ProductoService/producto.service';
 import { Producto } from '../model/Producto/producto';
+import { PlanetaComponent } from '../planeta/planeta.component';
 
 @Component({
   selector: 'app-producto',

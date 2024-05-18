@@ -19,54 +19,17 @@
         </nav>
     </header>
 
-    <h2>Lista de Jugadores</h2>
-    <a routerLink="/crear-jugador">Agregar Nuevo Jugador</a>
-
-    <div *ngIf="jugadoresPage">
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Equipo</th>
-                    <th>Contraseña</th>
-                    <th>Rol</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let jugador of jugadoresPage.content">
-                    <td>{{ jugador.id }}</td>
-                    <td>{{ jugador.nombre }}</td>
-                    <td>
-                        <ng-container *ngIf="jugador.equipo; else equipoNulo">
-                            {{ jugador.equipo.nombre }}
-                        </ng-container>
-                        <ng-template #equipoNulo>
-                            Equipo no asignado
-                        </ng-template>
-                    </td>
-                    <td>{{ jugador.contrasena }}</td>
-                    <td>
-                        <ng-container *ngIf="jugador.rol; else rolNulo">
-                            {{ jugador.rol }}
-                        </ng-container>
-                        <ng-template #rolNulo>
-                            Rol no definido
-                        </ng-template>
-                    </td>
-                    <td>
-                        <a [routerLink]="['/editar-jugador/', jugador.id]">Editar</a>
-                        <a (click)="eliminarJugador(jugador.id)">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <button (click)="obtenerJugadores(jugadoresPage.number - 1)" [disabled]="jugadoresPage.first">Anterior</button>
-        <span>Página {{ jugadoresPage.number + 1 }} de {{ jugadoresPage.totalPages }}</span>
-        <button (click)="obtenerJugadores(jugadoresPage.number + 1)" [disabled]="jugadoresPage.last">Siguiente</button>
-    </div>
-    <a routerLink="/jugadores">Cancelar</a>
+    <div class="profile-container">
+        <h2>Perfil de Jugador</h2>
+        <tr *ngFor="let jugador of jugadoresPage.content">
+        <p>Nombre de Usuario: {{ jugador.nombreUsuario }}</p>
+        <p>Rol Seleccionado: {{ jugador.rol }}</p>
+        <h3>Historial de Partidas</h3>
+        <ul>
+          <li *ngFor="let partida of jugador.historial">{{ partida.detalle }}</li>
+        </ul>
+    </tr>
+      </div>
+      
 </body>
 </html>

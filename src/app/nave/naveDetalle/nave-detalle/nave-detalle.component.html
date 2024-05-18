@@ -1,14 +1,45 @@
-<div>
-    <h2>Detalles de la Nave</h2>
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">{{ nave.nombre }}</h4>
-        <p class="card-text">ID: {{ nave.id }}</p>
-        <p class="card-text">Carga Máxima: {{ nave.cargaMaxima }} kg</p>
-        <p class="card-text">Velocidad Máxima: {{ nave.velocidadMaxima }} km/h</p>
-        <p class="card-text">Ubicación (X, Y, Z): ({{ nave.naveX }}, {{ nave.naveY }}, {{ nave.naveZ }})</p>
-        <p class="card-text">Tipo de Nave: {{ nave.tipoNave.nombre }}</p>
-        <p class="card-text">Equipo: {{ nave.equipo.nombre }}</p>
-      </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="nave-detalle.component.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a routerLink="/home">Inicio</a></li>
+                <li><a routerLink="/planetas">Planetas</a></li>
+                <li><a routerLink="/estrellas">Viajes</a></li>
+                <li><a routerLink="/jugadores">Perfil</a></li>
+                <li><a routerLink="/home">Salir</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+<div class="ship-control-container">
+  <h2>Panel de Control de la Nave</h2>
+  <div class="ship-details">
+    <h3>Detalles de la Nave</h3>
+    <p>Nombre: {{ nave.nombre }}</p>
+    <p>Capacidad de Carga: {{ nave.cargaMaxima }} m³</p>
+    <p>Velocidad Máxima: {{ nave.velocidadMaxima }} km/s</p>
   </div>
+  <div class="cargo">
+    <h3>Bodega de Carga</h3>
+    <ul>
+      <li *ngFor="let item of nave.carga">{{ item.nombre }} - {{ item.cantidad }}</li>
+    </ul>
+  </div>
+  <div class="actions">
+    <button (click)="viajar()">Viajar</button>
+    <button (click)="comerciar()">Comerciar</button>
+  </div>
+</div>
+      
+</body>
+</html>
+
+

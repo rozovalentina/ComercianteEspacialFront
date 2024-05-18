@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Planeta } from '../model/planeta/planeta';
 import { PlanetaService } from '../shared/PlanetaService/planeta.service';
+import { Planeta } from '../model/planeta/planeta';
 import { Page } from '../dto/page';
 import { Router } from '@angular/router';
 
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PlanetaComponent implements OnInit {
 
+  Planeta!: Planeta[];
   PlanetasPage!: Page;
 
   constructor(private planetaService: PlanetaService, private router:Router) { }

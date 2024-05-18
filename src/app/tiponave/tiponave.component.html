@@ -20,61 +20,24 @@
   </header>
 
   <main>
-    <section class="game-info">
-      <table border="1">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Carga Máxima</th>
-            <th>Velocidad Máxima</th>
-            <th>Posición X</th>
-            <th>Posición Y</th>
-            <th>Posición Z</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let tipoNave of tiposNaves">
-            <td>{{ tipoNave.id }}</td>
-            <td>{{ tipoNave.nombre }}</td>
-            <td>{{ tipoNave.descripcion }}</td>
-            <td>
-              <ul>
-                <li *ngFor="let nave of naves">{{ nave.cargaMaxima }}</li>
-              </ul>
-            </td>
-            <td>
-              <ul>
-                <li *ngFor="let nave of naves">{{ nave.velocidadMaxima }}</li>
-              </ul>
-            </td>
-            <td>
-              <ul>
-                <li *ngFor="let nave of naves">{{ nave.naveX }}</li>
-              </ul>
-            </td>
-            <td>
-              <ul>
-                <li *ngFor="let nave of naves">{{ nave.naveY }}</li>
-              </ul>
-            </td>
-            <td>
-              <ul>
-                <li *ngFor="let nave of naves">{{ nave.naveZ }}</li>
-              </ul>
-            </td>
-            <td><a [routerLink]="['/tiponave/', tipoNave.id, 'editar']">Editar</a></td>
-          </tr>
-        </tbody>
-      </table>
-      
-    </section>
-    <section class="gameplay">
-      <h2>Mapa Estelas:</h2>
-      <img src="../../app/cartas-estelares-1.jpg">
-    </section>
+    <div class="game-interface-container">
+      <h2>Interfaz Principal del Juego</h2>
+      <div class="ship-info">
+        <h3>Información de la Nave</h3>
+        <tr *ngFor="let nave of naves">
+        <p>Nombre: {{ nave.nombre }}</p>
+        <p>Carga Disponible: {{ nave.cargaDisponible }} m³</p>
+        <p>Velocidad Actual: {{ nave.velocidadActual }} km/s</p>
+        <p>Posición Actual: ({{ nave.posicionX }}, {{ nave.posicionY }}, {{ nave.posicionZ }})</p>
+      </tr>
+      </div>
+      <div class="stellar-map">
+        <h3>Mapa Estelar</h3>
+        <!-- Aquí iría el mapa estelar interactivo -->
+      </div>
+      <div class="other-ships">
+      </div>
+    </div>
     </main>
 
   <footer>
