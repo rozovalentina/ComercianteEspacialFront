@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Jugador } from '../../model/juagador/jugador';
+import { Jugador } from '../../model/jugador/jugador';
 import { Page } from '../../dto/page';
 
 @Injectable({

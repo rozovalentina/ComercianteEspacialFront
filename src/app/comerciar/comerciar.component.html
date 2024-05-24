@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    <link rel="stylesheet" href="comerciar.component.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a routerLink="/home">Inicio</a></li>
+                <li><a routerLink="/planetas">Planetas</a></li>
+                <li><a routerLink="/estrellas">Viajes</a></li>
+                <li><a routerLink="/jugadores">Perfil</a></li>
+                <li><a routerLink="/home">Salir</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="commerce-container">
+      <tr *ngFor="let planeta of PlanetasPage.content">
+        <h2>Comercio en {{ planeta.nombre }}</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Producto</th>
+              <th>Precio de Venta</th>
+              <th>Precio de Compra</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let producto of productos">
+              <td>{{ producto.nombre }}</td>
+              <td>{{ producto.precioVenta  }}</td>
+              <td>{{ producto.precioCompra  }}</td>
+              <td>
+                <button (click)="comprarProducto(producto,1)">Comprar</button>
+                <button (click)="venderProducto(producto,1)">Vender</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </tr>
+      </div>
+      
+</body>
+</html>

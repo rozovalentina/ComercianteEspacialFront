@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Jugador } from '../../model/juagador/jugador';
+import { Jugador } from '../../model/jugador/jugador';
 import { LoginService } from './../../shared/login/login.service';
 import { Component, OnInit } from '@angular/core';
 

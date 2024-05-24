@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Jugador } from '../model/juagador/jugador';
+import { Jugador } from '../model/jugador/jugador';
 import { JugadorService } from '../shared/JugadorService/jugador.service';
 import { Page } from '../dto/page';
 

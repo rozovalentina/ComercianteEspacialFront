@@ -1,17 +1,23 @@
 import { Equipo } from "../equipo/equipo";
 import { TipoNave } from "../TipoNave/tiponave";
-export class Nave {
-    id: number;
-    nombre: string;
-    cargaMaxima: number;
-    velocidadMaxima: number;
-    naveX: number;
-    naveY: number;
-    naveZ: number;
-    tipoNave: TipoNave;
-    equipo: Equipo;
+import { Producto } from '../Producto/producto';
+import { Estrella } from '../estrella/estrella';
+import { Jugador } from '../jugador/jugador';
 
-    constructor()
+export class Nave {
+  id: number;
+  nombre: string;
+  cargaMaxima: number;
+  velocidadMaxima: number;
+  naveX: number;
+  naveY: number;
+  naveZ: number;
+  tipoNave: TipoNave;
+  estrella: Estrella;
+  equipo: Equipo;
+  jugador: Jugador;
+  productos: Producto[];
+  constructor()
     {
         this.id = 0;
         this.nombre = '';
@@ -22,6 +28,8 @@ export class Nave {
         this.naveZ = 0;
         this.tipoNave = new TipoNave();
         this.equipo = new Equipo();
-    
+        this.estrella= new Estrella();
+        this.jugador = new Jugador();
+        this.productos = [];
     }
 }

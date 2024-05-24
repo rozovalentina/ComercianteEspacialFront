@@ -30,4 +30,7 @@ export class ProductoService {
   eliminarProducto(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}/eliminar`, { responseType: 'text' });
   }
+  getProductosDePlaneta(planetaId: number): Observable<Producto[]> {
+    return this.http.get<Producto[]>(`${this.baseUrl}/planeta/${planetaId}`);
+  }
 }

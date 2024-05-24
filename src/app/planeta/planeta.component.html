@@ -19,12 +19,13 @@
         </nav>
     </header>
 
-    <div class="planetas">
-        <h2>Lista de Planetas</h2>
-        <div *ngFor="let planeta of Planeta">
-          <h3>{{ planeta.nombre }}</h3>
-          <button (click)="verProductos(planeta.id)">Ver Productos</button>
-        </div>
+    <div *ngIf="productos.length > 0">
+        <h3>Productos en {{ planeta.nombre }}</h3>
+        <ul>
+          <li *ngFor="let producto of productos">
+            {{ producto.nombre }} - {{ producto.precioVenta| currency }}
+          </li>
+        </ul>
       </div>
       
 </body>

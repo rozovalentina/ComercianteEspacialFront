@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EquipoService } from '../../shared/EquipoService/equipo.service';
 import { Equipo } from '../../model/equipo/equipo';
-import { Jugador } from '../../model/juagador/jugador';
+import { Jugador } from '../../model/jugador/jugador';
 import { Nave } from '../../model/nave/nave';
 
 @Component({

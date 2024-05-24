@@ -30,6 +30,7 @@ import { ProductoCrearComponent } from './producto/crear-producto/crear-producto
 import { HomeComponent } from './home/home/home.component';
 import { HeaderComponent } from './header/header/header.component';
 import { LoginComponent } from './login/login/login.component';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { LoginComponent } from './login/login/login.component';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     FormsModule,
     RouterModule,
