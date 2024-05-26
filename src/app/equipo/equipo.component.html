@@ -1,3 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>equipos</title>
+    <link rel="stylesheet" href="equipo.component.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a routerLink="/tiponave">Juego</a></li>
+                <li><a routerLink="/planetas">Planetas</a></li>
+                <li><a routerLink="/estrellas">Viajes</a></li>
+                <li><a routerLink="/jugadores">Perfil</a></li>
+                <li><a routerLink="/home">Salir</a></li>
+            </ul>
+        </nav>
+    </header>
 <h1>Lista de Equipos</h1>
 <a routerLink="/nuevo-equipo">Agregar Nuevo Equipo</a>
 <div *ngIf="equipoPage">
@@ -29,3 +49,5 @@
     <button (click)="getAllEquipos(equipoPage.number + 1)" [disabled]="equipoPage.last">Siguiente</button>
 </div>
 <a routerLink="/home">Volver</a>
+</body>
+</html>

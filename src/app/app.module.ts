@@ -28,6 +28,7 @@ import { ProductoComponent } from './producto/producto.component';
 import { ProductoEditarComponent } from './producto/editar-producto/editar-producto.component';
 import { ProductoCrearComponent } from './producto/crear-producto/crear-producto.component';
 import { HomeComponent } from './home/home/home.component';
+import { NaveDetalleComponent } from './nave/naveDetalle/nave-detalle/nave-detalle.component';
 import { HeaderComponent } from './header/header/header.component';
 import { LoginComponent } from './login/login/login.component';
 import { CommonModule } from '@angular/common';
@@ -61,6 +62,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     HomeComponent,
     HeaderComponent,
     ComerciarComponent,
+    NaveDetalleComponent,
   ],
   imports: [
     BrowserModule,

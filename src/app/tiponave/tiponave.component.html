@@ -22,18 +22,15 @@
     <div class="game-interface-container">
       <div class="ship-info">
         <h3>Información de la Nave</h3>
-        <tr *ngFor="let nave of naves">
+        <tr *ngFor="let nave of tiposNaves">
         <p>Nombre: {{ nave.nombre }}</p>
-        <p>Carga Disponible: {{ nave.cargaDisponible }} m³</p>
-        <p>Velocidad Actual: {{ nave.velocidadActual }} km/s</p>
-        <p>Posición Actual: ({{ nave.posicionX }}, {{ nave.posicionY }}, {{ nave.posicionZ }})</p>
+        <p>Descripcion: {{ nave.descripcion }} m³</p>
+        <!--<p>Velocidad Actual: {{ nave.velocidadActual }} km/s</p>
+        <p>Posición Actual: ({{ nave.posicionX }}, {{ nave.posicionY }}, {{ nave.posicionZ }})</p>-->
       </tr>
       </div>
-      <div class="stellar-map">
-        <h3>Mapa Estelar</h3>
-        <!-- Aquí iría el mapa estelar interactivo -->
-      </div>
       <div class="other-ships">
+        <h3>Información otras Nave</h3>
         <!-- Información de otras naves o jugadores -->
       </div>
     </div>

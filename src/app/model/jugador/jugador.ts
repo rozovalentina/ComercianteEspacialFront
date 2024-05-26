@@ -1,13 +1,13 @@
 import { Equipo } from "../equipo/equipo";
 export class Jugador {
-    id: number;
+    id: string;
     nombre: string;
     contrasena: string;
     rol: string;
     equipo: Equipo[];
 
     constructor(){
-      this.id=0;
+      this.id= '';
       this.nombre= '';
       this.contrasena='';
       this.rol='';

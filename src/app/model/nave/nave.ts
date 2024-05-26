@@ -5,7 +5,7 @@ import { Estrella } from '../estrella/estrella';
 import { Jugador } from '../jugador/jugador';
 
 export class Nave {
-  id: number;
+  id: string;
   nombre: string;
   cargaMaxima: number;
   velocidadMaxima: number;
@@ -19,7 +19,7 @@ export class Nave {
   productos: Producto[];
   constructor()
     {
-        this.id = 0;
+        this.id = '';
         this.nombre = '';
         this.cargaMaxima = 0;
         this.velocidadMaxima = 0;

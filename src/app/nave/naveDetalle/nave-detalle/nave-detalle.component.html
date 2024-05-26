@@ -22,15 +22,14 @@
 <div class="ship-control-container">
   <h2>Panel de Control de la Nave</h2>
   <div class="ship-details">
-    <h3>Detalles de la Nave</h3>
-    <p>Nombre: {{ nave.nombre }}</p>
-    <p>Capacidad de Carga: {{ nave.cargaMaxima }} m³</p>
-    <p>Velocidad Máxima: {{ nave.velocidadMaxima }} km/s</p>
+    <p>Nombre: {{ nave?.nombre }}</p>
+    <p>Capacidad de Carga: {{ nave?.cargaMaxima }} m³</p>
+    <p>Velocidad Máxima: {{ nave?.velocidadMaxima }} km/s</p>
+    <p>Posición Actual: ({{ nave?.naveX }}, {{ nave?.naveY }}, {{ nave?.naveZ }})</p>
   </div>
   <div class="cargo">
     <h3>Bodega de Carga</h3>
     <ul>
-      <li *ngFor="let item of nave.carga">{{ item.nombre }} - {{ item.cantidad }}</li>
     </ul>
   </div>
   <div class="actions">

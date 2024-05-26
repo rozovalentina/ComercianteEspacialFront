@@ -1,9 +1,10 @@
+import { ShipInfoService } from './../../../shared/ShipInfoService/shipinfo.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Nave } from '../../../model/nave/nave';
-import { NaveService } from '../../../shared/Nave/nave.service';
 import { SpaceTravelService } from '../../../shared/SpaceTravelService/spacetravel.service';
 import { ComerciarService } from '../../../shared/ComerciarService/Comerciar.service';
+import { AuthService } from '../../../shared/auth/auth.service';
 
 @Component({
   selector: 'app-nave-detalle',
@@ -11,24 +12,22 @@ import { ComerciarService } from '../../../shared/ComerciarService/Comerciar.ser
   styleUrls: ['./nave-detalle.component.css']
 })
 export class NaveDetalleComponent implements OnInit {
+  jugadorId: number = 1; // ID del jugador autenticado
   nave!: Nave;
+  otrasNaves: any[] = [];
 
-  constructor(
-    private route: ActivatedRoute,
-    private naveService: NaveService,
-    private spaceTravelService: SpaceTravelService,
-    private comerciarService: ComerciarService
-  ) {}
+  constructor(private route: ActivatedRoute, private shipInfoService: ShipInfoService, private spaceTravelService: SpaceTravelService,
+    private comerciarService: ComerciarService) { }
 
   ngOnInit(): void {
-    const idString = this.route.snapshot.paramMap.get('id');
-    if (idString !== null) {
-      const id = Number(idString);
-      this.naveService.obtenerNaveUsuario(id).subscribe(response => {
-        this.nave = response;
-      });
-    }
+    this.obtenerInformacionDeLaNave();
   }
+
+  obtenerInformacionDeLaNave(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.shipInfoService.obtenerInformacionDeLaNave(id).subscribe(data => this.nave = data);
+  }
+
 
   viajar(): void {
     if (this.nave && this.nave.id) {

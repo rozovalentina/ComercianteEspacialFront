@@ -11,7 +11,8 @@ export class TipoNaveComponent implements OnInit {
 
   tiposNaves: TipoNave[] = [];
   nave!: Nave [];
-naves: any;
+  naves : any;
+
 
   constructor(private tipoNaveService: TipoNaveService) { }
 
@@ -27,7 +28,6 @@ naves: any;
     this.tipoNaveService.guardarTipoNave(nombre, descripcion).subscribe(() => {
       this.obtenerTiposNaves();      
     });
-
-  
   }
+
 }

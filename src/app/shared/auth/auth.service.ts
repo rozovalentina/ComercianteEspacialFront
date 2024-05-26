@@ -14,6 +14,7 @@ const ROLE = "user-role";
   providedIn: 'root'
 })
 export class AuthService {
+  
 
   constructor(private http:HttpClient) { }
 
@@ -22,6 +23,7 @@ export class AuthService {
       .pipe(map(jwt => {
         console.log(jwt.nombre);
         console.log(jwt.rol);
+        console.log(jwt.token)
         sessionStorage.setItem(JWT_TOKEN, jwt.token);
         sessionStorage.setItem(EMAIL, jwt.nombre);
         sessionStorage.setItem(ROLE, jwt.rol);
@@ -44,5 +46,20 @@ export class AuthService {
 
   role() {
     return sessionStorage.getItem(ROLE);
+  }
+  getJugadorIdFromToken(): number| null{
+    const token = sessionStorage.getItem('jwt-token');
+    if (token) {
+      const tokenParts = token.split('.');
+      if (tokenParts.length === 3) {
+        const payload = JSON.parse(atob(tokenParts[1]));
+        return payload.id; // Asegúrate de ajustar el nombre del campo ID según tu token
+      }
+    }
+    return null;
+  }
+  
+  setToken(token: string) {
+    sessionStorage.setItem(JWT_TOKEN, token);
   }
 }

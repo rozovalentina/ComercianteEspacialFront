@@ -49,7 +49,7 @@ export const routes: Routes = [
   { path: 'productos', component: ProductoComponent },
   { path: 'productos/:id/editar', component: ProductoEditarComponent },
   { path: 'productos/nuevo', component: ProductoCrearComponent },
-  { path: 'nave/:id', component: NaveDetalleComponent},
+  { path: 'nave', component: NaveDetalleComponent},
   { path: 'login', component: LoginComponent},
   { path: 'home',component: HomeComponent },
   {path: 'comercializar',component: ComerciarComponent },
