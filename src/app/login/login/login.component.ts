@@ -1,7 +1,8 @@
 import { Router } from '@angular/router';
 import { Jugador } from '../../model/jugador/jugador';
-import { LoginService } from './../../shared/login/login.service';
+import { AuthService } from './../../shared/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { LoginDto } from '../../dto/login-dto';
 
 @Component({
   selector: 'app-login',
@@ -9,22 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
-  jugador2:Jugador= new Jugador();
-  constructor(private loginService:LoginService, private router: Router){
+  loginDto : LoginDto = new LoginDto("","");
+  constructor(private auth:AuthService, private router: Router){
   }
   ngOnInit(): void {
-    
+    this.auth.logout();
   }
 
-  guardarJugador(): void {
-    this.loginService.login(this.jugador2).subscribe(
-      (response) => {
-        console.log('Jugador guardado exitosamente:', response);
-        this.router.navigate(['/nave',response.id]);
-      },
-      (error) => {
-        console.error('Error al guardar el jugador:', error);
-      }
-    );
+  login() {
+    this.auth.login(this.loginDto)
+      .subscribe({
+        next: jwt => {
+          console.log(jwt);
+          this.router.navigate(["/home"]);
+        },
+        error: err => { console.error("Login failed:", err) }
+      });
   }
 }
