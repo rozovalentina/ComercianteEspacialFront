@@ -5,6 +5,10 @@ import { Nave } from '../../../model/nave/nave';
 import { SpaceTravelService } from '../../../shared/SpaceTravelService/spacetravel.service';
 import { ComerciarService } from '../../../shared/ComerciarService/Comerciar.service';
 import { AuthService } from '../../../shared/auth/auth.service';
+import { TipoNave } from '../../../model/TipoNave/tiponave';
+import { Equipo } from '../../../model/equipo/equipo';
+import { Estrella } from '../../../model/estrella/estrella';
+import { Jugador } from '../../../model/jugador/jugador';
 
 @Component({
   selector: 'app-nave-detalle',
@@ -13,7 +17,20 @@ import { AuthService } from '../../../shared/auth/auth.service';
 })
 export class NaveDetalleComponent implements OnInit {
   jugadorId: number = 1; // ID del jugador autenticado
-  nave!: Nave;
+  nave: Nave = { // Initialize with default values
+    id: 0,
+    nombre: '',
+    cargaMaxima: 0,
+    velocidadMaxima: 0,
+    naveX: 0,
+    naveY: 0,
+    naveZ: 0,
+    tipoNave : new TipoNave(),
+    equipo : new Equipo(),
+    estrella: new Estrella(),
+    jugador : new Jugador(),
+    productos : []
+  };
   otrasNaves: any[] = [];
 
   constructor(private route: ActivatedRoute, private shipInfoService: ShipInfoService, private spaceTravelService: SpaceTravelService,
@@ -25,7 +42,10 @@ export class NaveDetalleComponent implements OnInit {
 
   obtenerInformacionDeLaNave(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.shipInfoService.obtenerInformacionDeLaNave(id).subscribe(data => this.nave = data);
+    this.shipInfoService.obtenerInformacionDeLaNave(id).subscribe({
+      next: data => this.nave = data,
+      error: err => console.error('Error fetching ship info', err)
+    });
   }
 
 
