@@ -18,13 +18,13 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
   login(loginDto: LoginDto): Observable<JwtAuthenticationResponse> {
-    console.log(loginDto.nombre)
-    console.log(loginDto.password)
     return this.http.post<JwtAuthenticationResponse>(`${environment.serverUrl}/auth/login`, loginDto)
       .pipe(map(jwt => {
+        console.log(jwt.nombre);
+        console.log(jwt.rol);
         sessionStorage.setItem(JWT_TOKEN, jwt.token);
-        sessionStorage.setItem(EMAIL, jwt.email);
-        sessionStorage.setItem(ROLE, jwt.role);
+        sessionStorage.setItem(EMAIL, jwt.nombre);
+        sessionStorage.setItem(ROLE, jwt.rol);
         return jwt;
       }));
   }
