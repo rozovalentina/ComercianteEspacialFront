@@ -10,18 +10,16 @@
   <header>
     <nav>
       <ul>
-              <li><a routerLink="/home">Inicio</a></li>
-              <li><a routerLink="/productos">Comercio</a></li>
-              <li><a routerLink="/estrellas">Viajes</a></li>
-              <li><a routerLink="/jugadores">Perfil</a></li>
-              <li><a routerLink="/home">Salir</a></li>
+        <li><a routerLink="/comercializar">Comercio</a></li>
+        <li><a routerLink="/estrellas">Viajes</a></li>
+        <li><a routerLink="/jugadores">Perfil</a></li>
+        <li><a routerLink="/home">Salir</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
     <div class="game-interface-container">
-      <h2>Interfaz Principal del Juego</h2>
       <div class="ship-info">
         <h3>Información de la Nave</h3>
         <tr *ngFor="let nave of naves">
@@ -36,13 +34,13 @@
         <!-- Aquí iría el mapa estelar interactivo -->
       </div>
       <div class="other-ships">
+        <!-- Información de otras naves o jugadores -->
       </div>
     </div>
-    </main>
+  </main>
 
   <footer>
     <p>&copy; 2024 Comerciante Espacial. Todos los derechos reservados.</p>
   </footer>
 </body>
 </html>
-

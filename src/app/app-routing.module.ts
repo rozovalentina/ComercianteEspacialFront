@@ -24,6 +24,7 @@ import { ProductoCrearComponent } from './producto/crear-producto/crear-producto
 import { HomeComponent } from './home/home/home.component';
 import { NaveDetalleComponent } from './nave/naveDetalle/nave-detalle/nave-detalle.component';
 import { LoginComponent } from './login/login/login.component';
+import { ComerciarComponent } from './comerciar/comerciar.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -51,6 +52,7 @@ export const routes: Routes = [
   { path: 'nave/:id', component: NaveDetalleComponent},
   { path: 'login', component: LoginComponent},
   { path: 'home',component: HomeComponent },
+  {path: 'comercializar',component: ComerciarComponent },
 ];
 
 @NgModule({

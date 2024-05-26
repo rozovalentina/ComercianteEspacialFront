@@ -8,7 +8,7 @@ import { Nave } from '../../model/nave/nave';
 })
 export class OtherShipInfoService {
 
-  private apiUrl = 'http://localhost:8080'; // Cambia la URL base según tu configuración
+  private apiUrl = 'http://localhost:8080/naves'; // Cambia la URL base según tu configuración
 
   constructor(private http: HttpClient) { }
 

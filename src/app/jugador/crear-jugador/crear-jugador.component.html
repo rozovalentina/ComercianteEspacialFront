@@ -1,12 +1,43 @@
-<h2>Crear Nuevo Jugador</h2>
-<form (ngSubmit)="guardarJugador()">
-  <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" name="nombre" [(ngModel)]="jugador.nombre" required><br>
-  <label for="contraseña">Contraseña:</label>
-  <input type="password" id="contraseña" name="contraseña" [(ngModel)]="jugador.contrasena" required><br>
-  <label for="equipo">Equipo:</label>
-  <select id="equipo" name="equipo" [(ngModel)]="jugador.equipo" required>
-  </select><br>
-  <button type="submit">Guardar Jugador</button>
-</form>
-<a routerLink="/lista-jugador">Cancelar</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nuevo Jugador</title>
+  <link rel="stylesheet" href="crear-jugador.component.css">
+</head>
+
+<body>
+  <div class="login-container">
+    <div class="login-box">
+      <h2>Crear Nuevo Jugador</h2>
+      <form (ngSubmit)="guardarJugador()">
+        <div class="input-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" name="nombre" [(ngModel)]="jugador.nombre" required>
+        </div>
+        <div class="input-group">
+          <label for="contraseña">Contraseña:</label>
+          <input type="password" class="form-control" id="contraseña" name="contraseña" [(ngModel)]="jugador.contrasena" required>
+        </div>
+        <div class="input-group">
+          <label for="equipo">Equipo:</label>
+          <select id="equipo" name="equipo" [(ngModel)]="jugador.equipo" required>
+            <!-- Opciones de equipo -->
+          </select>
+        </div>
+        <button type="submit" class="login-button">Guardar Jugador</button>
+      </form>
+      <div class="register-link">
+        <a routerLink="/login">Iniciar Sesion</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Comerciante Espacial. Todos los derechos reservados.</p>
+  </footer>
+</body>
+
+</html>

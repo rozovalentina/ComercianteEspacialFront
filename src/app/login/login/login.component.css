@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: #6c5ce7; /* Color de fondo */
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centrado vertical */
+    height: 80vh;
+    font-size: 14px; /* Tamaño de fuente base */
+  }
+  
+  .login-box {
+    background-color: #455a64; /* Color de fondo del cuadro de inicio de sesión */
+    padding: 20px 30px; /* Ajuste de padding */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 300px; /* Ajuste de ancho */
+    text-align: center;
+  }
+  
+  h2 {
+    color: #ffd700; /* Color del título */
+    margin-bottom: 15px; /* Margen inferior */
+    font-size: 18px; /* Tamaño de fuente */
+  }
+  
+  .input-group {
+    margin-bottom: 15px; /* Margen inferior */
+    text-align: left;
+  }
+  
+  label {
+    color: #fff; /* Color del texto */
+    margin-bottom: 5px; /* Margen inferior */
+    font-size: 12px; /* Tamaño de fuente */
+    display: block;
+  }
+  
+  input[type="text"], input[type="password"] {
+    padding: 8px; /* Padding */
+    border: none;
+    border-radius: 5px;
+    width: calc(100% - 16px); /* Ancho completo menos el padding */
+    font-size: 14px; /* Tamaño de fuente */
+    margin-bottom: 10px; /* Margen inferior */
+  }
+  
+  input[type="text"]:focus, input[type="password"]:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    outline: none;
+  }
+  
+  .login-button {
+    background-color: #6c5ce7; /* Color del botón */
+    color: #fff;
+    padding: 10px 20px; /* Ajuste de padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Tamaño de fuente */
+    width: 100%; /* Ancho completo */
+    transition: background-color 0.3s ease; /* Transición */
+  }
+  
+  .login-button:hover {
+    background-color: #8e44ad; /* Color del botón al pasar el mouse */
+  }
+  
+  .register-link {
+    margin-top: 20px; /* Margen superior */
+  }
+  
+  .register-link a {
+    color: #ffd700; /* Color del enlace */
+    text-decoration: none;
+    font-size: 14px; /* Tamaño de fuente */
+  }
+  
+  .register-link a:hover {
+    color: #e3f2fd; /* Color del enlace al pasar el mouse */
+  }
+  
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(to bottom, #6c5ce7 , #8e44ad);
+    color: #fff;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }
+  

@@ -31,6 +31,7 @@ import { HomeComponent } from './home/home/home.component';
 import { HeaderComponent } from './header/header/header.component';
 import { LoginComponent } from './login/login/login.component';
 import { CommonModule } from '@angular/common';
+import { ComerciarComponent } from './comerciar/comerciar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,6 +59,7 @@ import { CommonModule } from '@angular/common';
     ProductoComponent,
     HomeComponent,
     HeaderComponent,
+    ComerciarComponent,
   ],
   imports: [
     BrowserModule,
