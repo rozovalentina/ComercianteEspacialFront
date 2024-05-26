@@ -21,10 +21,14 @@ export class LoginComponent implements OnInit {
     this.auth.login(this.loginDto)
       .subscribe({
         next: jwt => {
+          this.auth.setToken(jwt.token);
+          const id =jwt.token
           console.log(jwt);
-          this.router.navigate(["/home"]);
+          this.router.navigate(["/nave"]);
         },
         error: err => { console.error("Login failed:", err) }
       });
   }
+
+  
 }
