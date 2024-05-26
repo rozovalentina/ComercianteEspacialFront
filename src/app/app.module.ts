@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { EquipoComponent } from './equipo/equipo.component';
 import { EquipoDetalleComponent } from './equipo/equipo-detalle/equipo-detalle.component';
@@ -32,6 +32,7 @@ import { HeaderComponent } from './header/header/header.component';
 import { LoginComponent } from './login/login/login.component';
 import { CommonModule } from '@angular/common';
 import { ComerciarComponent } from './comerciar/comerciar.component';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,7 +70,7 @@ import { ComerciarComponent } from './comerciar/comerciar.component';
     RouterModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass :AuthInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
