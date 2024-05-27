@@ -1,12 +1,12 @@
-<h1>Detalle de Estrella</h1>
-<p>ID: {{ estrella.id }}</p>
-<p>Nombre: {{ estrella.nombre }}</p>
-<p>Habitada: {{ estrella.habitada }}</p>
-<p>coordenada X: {{ estrella.coordenadaX }}</p>
-<p>coordenada Y: {{ estrella.coordenadaY }}</p>
-<p>coordenada Z: {{ estrella.coordenadaZ }}</p>
-<h2>Listado de Planetas</h2>
-<ul>
-  <li *ngFor="let planeta of planetas">{{ planeta.nombre }}</li>
-</ul>
-<a routerLink="/estrellas">Volver a la Lista de Estrellas</a>
+<div *ngIf="planetas.length > 0">
+  <h3>Planetas de la estrella {{ nave.estrella.id }}</h3>
+  <ul>
+    <li *ngFor="let planeta of planetas">
+      {{ planeta.nombre }}
+    </li>
+  </ul>
+</div>
+<div *ngIf="planetas.length === 0">
+  <p>No hay planetas disponibles para esta estrella.</p>
+</div>
+

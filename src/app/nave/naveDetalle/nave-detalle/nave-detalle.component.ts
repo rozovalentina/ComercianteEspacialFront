@@ -92,19 +92,6 @@ export class NaveDetalleComponent implements OnInit {
       });
   }
 
-  viajarA(id: number): void {
-    // Suponiendo que la nave está actualmente en la estrella con id 1
-    const sourceStarId = 1;
-    const shipSpeed = 10; // Velocidad de la nave
-
-    this.spaceTravelService.initiateSpaceTravel(id);
-    this.spaceTravelService.getTravelTime(sourceStarId, id, shipSpeed)
-      .subscribe((time: number) => {
-        this.travelTime = time;
-      });
-  }
-
-
   irAComerciar() {
     this.router.navigate(['/comercializar']);
   }

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Estrella } from '../../model/estrella/estrella';
+import { Nave } from '../../model/nave/nave';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,9 @@ export class SpaceTravelService {
 
   constructor(private http: HttpClient) { }
 
-  initiateSpaceTravel(starId: number): void {
-    // Implementa la lógica para iniciar un viaje interestelar hacia la estrella seleccionada
-    // Por simplicidad, puedes imprimir un mensaje en la consola indicando que el viaje se ha iniciado
-    console.log('Viaje iniciado hacia la estrella con ID: ' + starId);
+  iniciarViajeInterestelar(naveId: number, estrellaDestinoId: number): Observable<Nave> {
+    const url = `${this.baseUrl}/iniciar?naveId=${naveId}&estrellaDestinoId=${estrellaDestinoId}`;
+    return this.http.post<Nave>(url, null);
   }
 
   getTravelTime(sourceStarId: number, destinationStarId: number, shipSpeed: number): Observable<number> {

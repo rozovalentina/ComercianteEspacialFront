@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Estrella } from '../../model/estrella/estrella';
 import { Page } from '../../dto/page';
+import { Planeta } from '../../model/planeta/planeta';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,8 @@ export class EstrellaService {
   eliminarEstrella(id: number): Observable<void> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.delete<void>(url);
+  }
+  obtenerPlanetasPorEstrella(idEstrella: number): Observable<Planeta[]> {
+    return this.http.get<Planeta[]>(`${this.apiUrl}/${idEstrella}/planetas`);
   }
 }

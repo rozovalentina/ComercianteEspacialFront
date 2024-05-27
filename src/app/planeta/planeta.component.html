@@ -11,7 +11,7 @@
         <nav>
             <ul>
                 <li><a routerLink="/home">Inicio</a></li>
-                <li><a routerLink="/producto">Comercio</a></li>
+                <li><a routerLink="/comercializa">Comercio</a></li>
                 <li><a routerLink="/estrellas">Viajes</a></li>
                 <li><a routerLink="/jugadores">Perfil</a></li>
                 <li><a routerLink="/home">Salir</a></li>
@@ -19,14 +19,10 @@
         </nav>
     </header>
 
-    <div *ngIf="productos.length > 0">
-        <h3>Productos en {{ planeta.nombre }}</h3>
-        <ul>
-          <li *ngFor="let producto of productos">
-            {{ producto.nombre }} - {{ producto.precioVenta| currency }}
-          </li>
-        </ul>
-      </div>
-      
+    <main>
+        <div class="container">
+            <app-estrella-detalle></app-estrella-detalle>
+        </div>
+    </main>
 </body>
 </html>

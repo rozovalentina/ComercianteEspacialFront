@@ -1,39 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Estrellas</title>
-    <link rel="stylesheet" href="estrella.component.css">
-</head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li><a routerLink="/home">Inicio</a></li>
-        <li><a routerLink="/productos">Comercio</a></li>
-        <li><a routerLink="/estrellas">Viajes</a></li>
-        <li><a routerLink="/jugadores">Perfil</a></li>
-        <li><a routerLink="/home">Salir</a></li>
-      </ul>
-    </nav>
-  </header>
-  
-  <div class="navigation-container">
-    <h2>Navegación Estelar</h2>
-    <h3>Estrellas Cercanas</h3>
-    <ul>
-      <li *ngFor="let estrellaConDistancia of nearestStars">
-        {{ estrellaConDistancia.estrella.nombre }} - Distancia: {{ estrellaConDistancia.distancia | number:'1.2-2' }} años luz
-        <button (click)="viajarA(estrellaConDistancia.estrella.id)">Viajar</button>
-      </li>
-    </ul>
-    <div class="travel-time">
-      <h3>Tiempo Estimado de Viaje</h3>
-      <p>{{ travelTime }} días</p>
-    </div>
-  </div>
-  
-      
-</body>
-</html>
+<div class="navigation-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Distancia</th>
+        <th>Acción</th>
+        <th>Duración</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let estrellaConDistancia of nearestStars">
+        <td>{{ estrellaConDistancia.estrella.nombre }}</td>
+        <td>{{ estrellaConDistancia.distancia | number:'1.2-2' }}</td>
+        <td><button (click)="viajarA(estrellaConDistancia.estrella.id)">Viajar</button></td>
+        <td>{{ travelTime }} días</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -20,31 +20,30 @@
     </header>
     
     <div class="commerce-container">
-      <tr *ngFor="let planeta of planetasPage.content">
-        <h2>Comercio en {{ planeta.nombre }}</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Producto</th>
-              <th>Precio de Venta</th>
-              <th>Precio de Compra</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let producto of productos">
-              <td>{{ producto.nombre }}</td>
-              <td>{{ producto.precioVenta  }}</td>
-              <td>{{ producto.precioCompra  }}</td>
-              <td>
-                <button (click)="comprarProducto(producto,1)">Comprar</button>
-                <button (click)="venderProducto(producto,1)">Vender</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </tr>
-      </div>
-      
+        <div *ngFor="let planeta of planetasPage.content" class="planeta-section">
+            <h2>Comercio en {{ planeta.nombre }}</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio de Venta</th>
+                        <th>Precio de Compra</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let producto of productos">
+                        <td>{{ producto.nombre }}</td>
+                        <td>{{ producto.precioVenta }}</td>
+                        <td>{{ producto.precioCompra }}</td>
+                        <td>
+                            <button (click)="comprarProducto(producto, 1)">Comprar</button>
+                            <button (click)="venderProducto(producto, 1)">Vender</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
