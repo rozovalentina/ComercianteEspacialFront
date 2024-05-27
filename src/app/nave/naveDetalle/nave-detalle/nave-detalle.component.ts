@@ -2,7 +2,7 @@ import { AuthService } from './../../../shared/auth/auth.service';
 import { JugadorService } from './../../../shared/JugadorService/jugador.service';
 import { ShipInfoService } from './../../../shared/ShipInfoService/shipinfo.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Nave } from '../../../model/nave/nave';
 import { SpaceTravelService } from '../../../shared/SpaceTravelService/spacetravel.service';
 import { ComerciarService } from '../../../shared/ComerciarService/Comerciar.service';
@@ -10,6 +10,8 @@ import { TipoNave } from '../../../model/TipoNave/tiponave';
 import { Equipo } from '../../../model/equipo/equipo';
 import { Estrella } from '../../../model/estrella/estrella';
 import { Jugador } from '../../../model/jugador/jugador';
+import { NavigationService } from '../../../shared/NavigationService/Navigation.service';
+import { EstrellaConDistancia } from '../../../model/EstrellaConDistancia/EstrellaConDistancia';
 
 @Component({
   selector: 'app-nave-detalle',
@@ -18,7 +20,7 @@ import { Jugador } from '../../../model/jugador/jugador';
 })
 export class NaveDetalleComponent implements OnInit {
   jugadorId: number = 1; // ID del jugador autenticado
-  nave: Nave = { 
+  nave: Nave = {
     id: 0,
     nombre: '',
     cargaMaxima: 0,
@@ -26,15 +28,17 @@ export class NaveDetalleComponent implements OnInit {
     naveX: 0,
     naveY: 0,
     naveZ: 0,
-    tipoNave : new TipoNave(),
-    equipo : new Equipo(),
+    tipoNave: new TipoNave(),
+    equipo: new Equipo(),
     estrella: new Estrella(),
-    productos : []
+    productos: []
   };
   otrasNaves: any[] = [];
+  travelTime: number = 0;
+  nearestStars: EstrellaConDistancia[] = [];
 
-  constructor(private route: ActivatedRoute,private authService: AuthService, private shipInfoService: ShipInfoService, private spaceTravelService: SpaceTravelService,
-    private comerciarService: ComerciarService,private jugadorService: JugadorService) { }
+  constructor( private router: Router, private route: ActivatedRoute, private authService: AuthService, private shipInfoService: ShipInfoService, private spaceTravelService: SpaceTravelService,
+    private comerciarService: ComerciarService, private jugadorService: JugadorService, private navigationService: NavigationService) { }
 
   ngOnInit(): void {
     this.obtenerInformacionDeLaNave();
@@ -43,54 +47,66 @@ export class NaveDetalleComponent implements OnInit {
   obtenerInformacionDeLaNave(): void {
     const nombreJugador: string | null = this.authService.nombre();
     if (nombreJugador !== null) {
-        this.jugadorService.obtenerJugadorPorNombre(nombreJugador)
-            .subscribe(
-                (jugador: Jugador) => {                  
-                    if (jugador) {   
-                      console.log(jugador.id) 
-                      if(jugador.id !=undefined){
-                        this.shipInfoService.obtenerInformacionDeLaNave(jugador.id)
-                            .subscribe(
-                                (data: any) => {                                    
-                                    this.nave = data;
-                                    console.log(this.nave.nombre);
-                                },
-                                (error: any) => {                                    
-                                    console.error('Error al obtener información de la nave', error);
-                                }
-                            );
-                      }else{
-                        console.error('id jugador nula')
-                      }   
-                    } else {                        
-                        console.error('Jugador no encontrado');
+      this.jugadorService.obtenerJugadorPorNombre(nombreJugador)
+        .subscribe(
+          (jugador: Jugador) => {
+            if (jugador) {
+              console.log(jugador.id)
+              if (jugador.id != undefined) {
+                this.shipInfoService.obtenerInformacionDeLaNave(jugador.id)
+                  .subscribe(
+                    (data: any) => {
+                      this.nave = data;
+                      console.log(this.nave.nombre);
+                    },
+                    (error: any) => {
+                      console.error('Error al obtener información de la nave', error);
                     }
-                },
-                (error: any) => {                   
-                    console.error('Error al obtener información del jugador', error);
-                }
-            );
+                  );
+              } else {
+                console.error('id jugador nula')
+              }
+            } else {
+              console.error('Jugador no encontrado');
+            }
+          },
+          (error: any) => {
+            console.error('Error al obtener información del jugador', error);
+          }
+        );
     } else {
-        console.error('Nombre de jugador es null');
+      console.error('Nombre de jugador es null');
     }
-  
-}
 
-  viajar(): void {
-    if (this.nave && this.nave.id) {
-      const destinationStarId = 1; // Aquí puedes obtener el ID de la estrella destino
-      this.spaceTravelService.initiateSpaceTravel(destinationStarId);
-      console.log('Viaje iniciado hacia la estrella con ID:', destinationStarId);
-    }
   }
 
-  comerciar(): void {
-    if (this.nave) {
-      const estrellaId = 1; // Aquí puedes obtener el ID de la estrella actual
-      this.comerciarService.obtenerProductosNavesEnEstrella(estrellaId).subscribe(productos => {
-        console.log('Productos disponibles para comerciar:', productos);
+  obtenerEstrellasCercanas(): void {
+    // Suponiendo que la nave está en la posición (0, 0, 0)
+    const naveX = this.nave.naveX;
+    const naveY = this.nave.naveY;
+    const naveZ = this.nave.naveZ;
+
+    this.navigationService.getNearestStars(naveX, naveY, naveZ)
+      .subscribe((data: EstrellaConDistancia[]) => {
+        this.nearestStars = data;
       });
-    }
+  }
+
+  viajarA(id: number): void {
+    // Suponiendo que la nave está actualmente en la estrella con id 1
+    const sourceStarId = 1;
+    const shipSpeed = 10; // Velocidad de la nave
+
+    this.spaceTravelService.initiateSpaceTravel(id);
+    this.spaceTravelService.getTravelTime(sourceStarId, id, shipSpeed)
+      .subscribe((time: number) => {
+        this.travelTime = time;
+      });
+  }
+
+
+  irAComerciar() {
+    this.router.navigate(['/comercializar']);
   }
 }
 

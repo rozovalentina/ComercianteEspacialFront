@@ -1,46 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Productos</title>
-    <link rel="stylesheet" href="nave-detalle.component.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Productos</title>
+  <link rel="stylesheet" href="nave-detalle.component.css">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a routerLink="/home">Inicio</a></li>
-                <li><a routerLink="/planetas">Planetas</a></li>
-                <li><a routerLink="/estrellas">Viajes</a></li>
-                <li><a routerLink="/jugadores">Perfil</a></li>
-                <li><a routerLink="/home">Salir</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-<div class="ship-control-container">
-  <h2>Panel de Control de la Nave</h2>
-  <div class="ship-details">
-    <div *ngIf="nave">
-    <p>Nombre: {{ nave.nombre }}</p>
-    <p>Capacidad de Carga: {{ nave.cargaMaxima }} m³</p>
-    <p>Velocidad Máxima: {{ nave.velocidadMaxima }} km/s</p>
-    <p>Posición Actual: ({{ nave.naveX }}, {{ nave.naveY }}, {{ nave.naveZ }})</p>
-  </div>
-  </div>
-  <div class="cargo">
-    <h3>Bodega de Carga</h3>
-    <ul>
-    </ul>
-  </div>
-  <div class="actions">
-    <button (click)="viajar()">Viajar</button>
-    <button (click)="comerciar()">Comerciar</button>
-  </div>
-</div>
-      
+  <header>
+    <nav>
+      <ul>
+        <li><a routerLink="/home">Inicio</a></li>
+        <li><a routerLink="/planetas">Planetas</a></li>
+        <li><a routerLink="/estrellas">Viajes</a></li>
+        <li><a routerLink="/jugadores">Perfil</a></li>
+        <li><a routerLink="/home">Salir</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <div class="ship-control-container">
+        <h2>Control de la Nave</h2>
+        <div class="ship-details">
+          <div *ngIf="nave">
+            <table>
+              <thead>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Nombre</td>
+                  <td>{{ nave.nombre }}</td>
+                </tr>
+                <tr>
+                  <td>Capacidad de Carga</td>
+                  <td>{{ nave.cargaMaxima }} m³</td>
+                </tr>
+                <tr>
+                  <td>Velocidad Máxima</td>
+                  <td>{{ nave.velocidadMaxima }} km/s</td>
+                </tr>
+                <tr>
+                  <td>Posición Actual</td>
+                  <td>({{ nave.naveX }}, {{ nave.naveY }}, {{ nave.naveZ }})</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="navigation-container">
+        <h2>Estrellas Cercanas</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Distancia</th>
+              <th>Acción</th>
+              <th>Duración</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let estrellaConDistancia of nearestStars">
+              <td>{{ estrellaConDistancia.estrella.nombre }}</td>
+              <td>{{ estrellaConDistancia.distancia | number:'1.2-2' }}</td>
+              <td><button (click)="viajarA(estrellaConDistancia.estrella.id)">Viajar</button></td>
+              <td>{{ travelTime }} días</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="trade-button-container">
+      <button (click)="irAComerciar()">COMERCIO</button>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2024 Comerciante Espacial. Todos los derechos reservados.</p>
+  </footer>
 </body>
+
 </html>
-
-

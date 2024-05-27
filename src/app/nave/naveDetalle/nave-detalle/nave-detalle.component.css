@@ -1,88 +1,135 @@
 body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background-color: #8e44ad;
-    color: #fff
-  }
-  
-  header {
-    background: linear-gradient(to bottom, #6c5ce7, #8e44ad);
-    padding: 20px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
-  }
-  
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center
-  }
-  
-  nav ul li {
-    margin: 0 20px
-  }
-  
-  nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 18px;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background 0.3s, color 0.3s
-  }
-  
-  nav ul li a:hover {
-    background: #6c5ce7;
-    color: #e3f2fd
-  }
-  
-  main {
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center
-  }
-  
-  .game-interface-container {
-    max-width: 1200px;
-    width: 100%;
-    padding: 30px;
-    background: #6c5ce7;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5)
-  }
-  
-  .ship-info,
-  .stellar-map,
-  .other-ships {
-    margin-bottom: 40px;
-    padding: 20px;
-    background: #8e44ad;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)
-  }
-  
-  .ship-info h3,
-  .stellar-map h3 {
-    font-size: 1.8em;
-    color: #ffd700;
-    margin-bottom: 20px
-  }
-  
-  .ship-info p,
-  .stellar-map p {
-    font-size: 1.2em;
-    margin: 10px 0
-  }
-  
-  footer {
-    text-align: center;
-    padding: 20px;
-    background: linear-gradient(to bottom, #8e44ad, #6c5ce7);
-    color: #fff;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    width: 100%;
-    bottom: 0
-  }
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #8e44ad;
+  color: #fff;
+}
+
+header {
+  background: linear-gradient(to bottom, #6c5ce7, #8e44ad);
+  padding: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+  background: #6c5ce7;
+  color: #e3f2fd;
+}
+
+main {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.ship-control-container, .navigation-container {
+  background: #6c5ce7;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  width: 45%;
+}
+
+h2 {
+  font-size: 1.8em;
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 1.5em;
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+p, ul {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+button {
+  background-color: #6c5ce7;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: #e3f2fd;
+  color: #6c5ce7;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: #8e44ad;
+}
+
+thead th {
+  padding: 10px;
+  font-size: 1.2em;
+  color: #ffd700;
+}
+
+tbody tr {
+  background-color: #6c5ce7;
+}
+
+tbody td {
+  padding: 10px;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.trade-button-container {
+  margin-top: 20px;
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to bottom, #8e44ad, #6c5ce7);
+  color: #fff;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
