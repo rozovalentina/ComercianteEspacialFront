@@ -1,10 +1,11 @@
+import { AuthService } from './../../../shared/auth/auth.service';
+import { JugadorService } from './../../../shared/JugadorService/jugador.service';
 import { ShipInfoService } from './../../../shared/ShipInfoService/shipinfo.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Nave } from '../../../model/nave/nave';
 import { SpaceTravelService } from '../../../shared/SpaceTravelService/spacetravel.service';
 import { ComerciarService } from '../../../shared/ComerciarService/Comerciar.service';
-import { AuthService } from '../../../shared/auth/auth.service';
 import { TipoNave } from '../../../model/TipoNave/tiponave';
 import { Equipo } from '../../../model/equipo/equipo';
 import { Estrella } from '../../../model/estrella/estrella';
@@ -17,7 +18,7 @@ import { Jugador } from '../../../model/jugador/jugador';
 })
 export class NaveDetalleComponent implements OnInit {
   jugadorId: number = 1; // ID del jugador autenticado
-  nave: Nave = { // Initialize with default values
+  nave: Nave = { 
     id: 0,
     nombre: '',
     cargaMaxima: 0,
@@ -28,26 +29,52 @@ export class NaveDetalleComponent implements OnInit {
     tipoNave : new TipoNave(),
     equipo : new Equipo(),
     estrella: new Estrella(),
-    jugador : new Jugador(),
     productos : []
   };
   otrasNaves: any[] = [];
 
-  constructor(private route: ActivatedRoute, private shipInfoService: ShipInfoService, private spaceTravelService: SpaceTravelService,
-    private comerciarService: ComerciarService) { }
+  constructor(private route: ActivatedRoute,private authService: AuthService, private shipInfoService: ShipInfoService, private spaceTravelService: SpaceTravelService,
+    private comerciarService: ComerciarService,private jugadorService: JugadorService) { }
 
   ngOnInit(): void {
     this.obtenerInformacionDeLaNave();
   }
 
   obtenerInformacionDeLaNave(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.shipInfoService.obtenerInformacionDeLaNave(id).subscribe({
-      next: data => this.nave = data,
-      error: err => console.error('Error fetching ship info', err)
-    });
-  }
-
+    const nombreJugador: string | null = this.authService.nombre();
+    if (nombreJugador !== null) {
+        this.jugadorService.obtenerJugadorPorNombre(nombreJugador)
+            .subscribe(
+                (jugador: Jugador) => {                  
+                    if (jugador) {   
+                      console.log(jugador.id) 
+                      if(jugador.id !=undefined){
+                        this.shipInfoService.obtenerInformacionDeLaNave(jugador.id)
+                            .subscribe(
+                                (data: any) => {                                    
+                                    this.nave = data;
+                                    console.log(this.nave.nombre);
+                                },
+                                (error: any) => {                                    
+                                    console.error('Error al obtener información de la nave', error);
+                                }
+                            );
+                      }else{
+                        console.error('id jugador nula')
+                      }   
+                    } else {                        
+                        console.error('Jugador no encontrado');
+                    }
+                },
+                (error: any) => {                   
+                    console.error('Error al obtener información del jugador', error);
+                }
+            );
+    } else {
+        console.error('Nombre de jugador es null');
+    }
+  
+}
 
   viajar(): void {
     if (this.nave && this.nave.id) {

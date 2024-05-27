@@ -1,17 +1,20 @@
 import { Equipo } from "../equipo/equipo";
+import { Nave } from "../nave/nave";
 export class Jugador {
-    id: string;
-    nombre: string;
-    contrasena: string;
-    rol: string;
-    equipo: Equipo[];
+  id: number | undefined;
+  nombre: string;
+  contrasena: string;
+  rol: string;
+  equipo: Equipo[];
+  nave: Nave;
 
-    constructor(){
-      this.id= '';
-      this.nombre= '';
-      this.contrasena='';
-      this.rol='';
-      this.equipo=[];
-    }
+  constructor(){
+    this.nombre= '';
+    this.contrasena='';
+    this.rol='';
+    this.equipo=[];
+    this.nave = new Nave;
   }
+}
+
   

@@ -15,7 +15,6 @@ export class Nave {
   tipoNave: TipoNave;
   estrella: Estrella;
   equipo: Equipo;
-  jugador: Jugador;
   productos: Producto[];
   constructor()
     {
@@ -29,7 +28,6 @@ export class Nave {
         this.tipoNave = new TipoNave();
         this.equipo = new Equipo();
         this.estrella= new Estrella();
-        this.jugador = new Jugador();
         this.productos = [];
     }
 }

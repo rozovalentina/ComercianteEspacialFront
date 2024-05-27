@@ -43,7 +43,9 @@ export class AuthService {
   token() {
     return sessionStorage.getItem(JWT_TOKEN);
   }
-
+  nombre(){
+    return sessionStorage.getItem(EMAIL);
+  }
   role() {
     return sessionStorage.getItem(ROLE);
   }

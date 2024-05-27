@@ -23,6 +23,10 @@ export class JugadorService {
     return this.http.get<Jugador>(`${this.apiUrl}/${id}`);
   }
 
+  obtenerJugadorPorNombre(nombre : String): Observable<Jugador> {
+    return this.http.get<Jugador>(`${this.apiUrl}/${nombre}`);
+  }
+
   guardarJugador(jugador: Jugador): Observable<Jugador> {
     return this.http.post<Jugador>(`${this.apiUrl}/guardar`, jugador);
   }
